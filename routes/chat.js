@@ -6,6 +6,279 @@ const Chat = require('../models/Chat');
 const logger = require('../config/logger');
 const sendEmail = require('../utils/sendEmail');
 
+// routes/chat.js
+const companyData = {
+  "company": {
+    "name": "Eco Packaging Products Inc. (BagStory USA)",
+    "headquarters": "New York, USA",
+    "productionBase": "China",
+    "certification": "ISO 9001:2000",
+    "website": "https://bagstoryusa.com",
+    "businessPhilosophy": [
+      "Customer-centricity",
+      "Innovation",
+      "Ethics and social responsibility",
+      "Continuous improvement"
+    ],
+    "sustainability": {
+      "circularEconomy": true,
+      "recyclingProgram": true,
+      "lowCarbonLogistics": true
+    },
+    "coreStrengths": [
+      "Self-built vertical production ecosystem with circular economy model",
+      "Comprehensive East Coast US distribution and warehouse system",
+      "Flexible small-batch order consolidation services",
+      "Strategic freight partnerships for global logistics advantages",
+      "Expert customs clearance and transport management"
+    ]
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Wine Vest Bag (1/2 Two Bottle Wine Bag)",
+      "size": "19.5H × 8W × 4GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 1000,
+      "price": {
+        "1–5 Cases": 0.1,
+        "6–50 Cases": 0.09,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Wine & Liquor Bags"
+    },
+    {
+      "id": 2,
+      "name": "Small Vest Bag (1/10 Small)",
+      "size": "16H × 8W × 4GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 1000,
+      "price": {
+        "1–5 Cases": 0.1,
+        "6–50 Cases": 0.09,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Beer, Snacks, Deli’s"
+    },
+    {
+      "id": 3,
+      "name": "Medium Vest Bag (1/8 Medium)",
+      "size": "18H × 10W × 5GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 1000,
+      "price": {
+        "1–5 Cases": 0.11,
+        "6–50 Cases": 0.09,
+        "50+ Cases": "Contact office"
+      },
+      "use": "6-pack, Deli, Liquor store"
+    },
+    {
+      "id": 4,
+      "name": "Large Vest Bag (1/6 Medium Duty)",
+      "size": "22H × 11.8W × 7GW in",
+      "color": [
+        "Black",
+        "White",
+        "Green",
+        "Yellow"
+      ],
+      "material": "Premium Non-Woven",
+      "caseQty": 600,
+      "price": {
+        "1–5 Cases": 0.12,
+        "6–50 Cases": 0.1,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Deli & Supermarkets"
+    },
+    {
+      "id": 5,
+      "name": "Large+ Vest Bag (1/6 Plus, A Bit Larger)",
+      "size": "22.5H × 13W × 7GW in",
+      "color": [
+        "Black",
+        "White"
+      ],
+      "material": "Premium Non-Woven",
+      "caseQty": 500,
+      "price": {
+        "1–5 Cases": 0.13,
+        "6–50 Cases": 0.11,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Mini Mart, Supermarket"
+    },
+    {
+      "id": 6,
+      "name": "2X-Large Vest Bag (1/4 XX-Large)",
+      "size": "23.5H × 18.7W × 7GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 400,
+      "price": {
+        "1–5 Cases": 0.2,
+        "6–50 Cases": 0.18,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Supermarket, 99¢ stores"
+    },
+    {
+      "id": 7,
+      "name": "Jumbo Size (Supersized Jumbo)",
+      "size": "29H × 18W × 7GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 1500,
+      "price": {
+        "1–5 Bundles": 0.21,
+        "5+ Bundles": 0.19,
+        "50+ Bundles": "Contact office"
+      },
+      "use": "99¢ Store, Wholesaler, Supermarket"
+    },
+    {
+      "id": 8,
+      "name": "Heavy Duty Large Vest Bag (1/6 Large)",
+      "size": "22H × 11.8W × 7D in",
+      "color": "White",
+      "material": "Premium Non-Woven",
+      "caseQty": 500,
+      "price": {
+        "1–5 Cases": 0.16,
+        "6–50 Cases": 0.135,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Heavy duty, supports 50 lbs"
+    },
+    {
+      "id": 9,
+      "name": "Die Cut Handle",
+      "size": "15H × 11W in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 1000,
+      "price": {
+        "1–5 Cases": 0.11,
+        "6–50 Cases": 0.1,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Book store, Game shops"
+    },
+    {
+      "id": 10,
+      "name": "2 Bottle Wine Tote Bag",
+      "size": "14H × 8W × 4D in",
+      "color": "Grey",
+      "material": "Premium Non-Woven",
+      "caseQty": 400,
+      "price": {
+        "1–5 Cases": 0.18,
+        "6–50 Cases": 0.17,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Liquor stores"
+    },
+    {
+      "id": 11,
+      "name": "Large 1/6 Tote Bag",
+      "size": "14H × 11.5W × 7D in",
+      "color": "Grey",
+      "material": "Premium Non-Woven",
+      "caseQty": 300,
+      "price": {
+        "1–5 Cases": 0.22,
+        "6–50 Cases": 0.2,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Grocery/Deli"
+    },
+    {
+      "id": 12,
+      "name": "Jumbo Grocery Tote Bag",
+      "size": "15H × 14W × 8GW in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 300,
+      "price": {
+        "1–5 Cases": 0.25,
+        "6–50 Cases": 0.23,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Retail/Supermarket"
+    },
+    {
+      "id": 13,
+      "name": "Thermal Insulated Tote Bag",
+      "size": "15H × 13W × 10D in",
+      "color": [
+        "Black",
+        "White",
+        "Green",
+        "Yellow"
+      ],
+      "material": "Premium Non-Woven",
+      "caseQty": 100,
+      "note": "Patented smart fabric multi layered and coated thermal film bag",
+      "price": {
+        "1–5 Cases": 3.5,
+        "6–50 Cases": 3.0
+      },
+      "use": "Lunch, Delivery, Groceries"
+    },
+    {
+      "id": 14,
+      "name": "Heavy Duty Grocery Tote Bag",
+      "size": "15H × 13W × 10D in",
+      "color": "Black",
+      "material": "Premium Non-Woven",
+      "caseQty": 100,
+      "note": "PVC board on bottom, hand stitched",
+      "price": {
+        "1–5 Cases": 2.5,
+        "6–50 Cases": 2.0,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Everyday shopping bag"
+    },
+    {
+      "id": 15,
+      "name": "6 Bottle Wine Bag",
+      "size": "15H × 11W × 8.5GW in",
+      "color": [
+        "Black",
+        "Red Burgundy"
+      ],
+      "material": "Premium Non-Woven",
+      "caseQty": 100,
+      "note": "6 bottle carrier with separator and PVC board, Hand Stitched",
+      "price": {
+        "1 Case": 200.0,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Liquor Store"
+    },
+    {
+      "id": 16,
+      "name": "Mylar Film Gift Bag",
+      "size": "20H × 9.5W in",
+      "color": "White Flash",
+      "material": "PVC Film",
+      "caseQty": 500,
+      "note": "Ribbon not included",
+      "price": {
+        "1–5 Cases": 0.6,
+        "6–50 Cases": 0.5,
+        "50+ Cases": "Contact office"
+      },
+      "use": "Wine Gift Bag"
+    }
+  ]
+};
+
 router.post('/chat', [
   body('name').trim().notEmpty().withMessage('Name is required'),
   body('email').isEmail().withMessage('Invalid email'),
@@ -36,6 +309,7 @@ router.post('/chat', [
     chat.messages.push({
       text: message,
       sender: 'user',
+      name: name,
       timestamp: new Date(),
     });
 
@@ -74,6 +348,7 @@ router.post('/chat', [
       chat.messages.push({
         text: 'Your request has been sent to a human agent. Please wait for a response.',
         sender: 'bot',
+        name: 'EcoBuddy',
         timestamp: new Date(),
       });
       await chat.save();
@@ -88,13 +363,28 @@ router.post('/chat', [
     // Handle follow-up email request
     if (message.toLowerCase().includes('follow-up email request')) {
       try {
+        // Send email to the client
         await sendEmail(
           email,
           'Follow-Up: Eco Packaging Support',
           `Hi ${name},\n\nThank you for reaching out! We’re sorry we couldn’t connect you with a human agent. We’ll follow up with you soon.\n\nBest,\nEco Packaging Team`
         );
+        console.log('Follow-up email sent successfully to:', email);
+
+        // Send email to the admin to notify them of the inquiry
+        await sendEmail(
+          process.env.ADMIN_EMAIL,
+          'Inquiry: No Human Agent Available',
+          `A user (${name}, ${email}) requested a human agent, but none were available. They have submitted a follow-up email request. Please follow up with them soon.`
+        );
+        console.log('Notification email sent to admin:', process.env.ADMIN_EMAIL);
       } catch (emailErr) {
-        console.error('Failed to send follow-up email to user:', emailErr);
+        console.error('Failed to send follow-up email to user or admin:', emailErr);
+        await sendEmail(
+          process.env.ADMIN_EMAIL,
+          'Error: Follow-Up Email Failed',
+          `Failed to send follow-up email to ${email} or admin. Error: ${emailErr.message}`
+        );
       }
 
       await chat.save();
@@ -117,7 +407,14 @@ router.post('/chat', [
       const response = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [
-          { role: 'system', content: 'You are a helpful assistant for an e-commerce packaging company.' },
+          {
+            role: 'system',
+            content: `You are EcoBuddy, a helpful assistant for Eco Packaging Products Inc. (BagStory USA), an e-commerce packaging company. Use the following company and product information to answer user inquiries accurately:
+
+${JSON.stringify(companyData, null, 2)}
+
+Provide detailed and accurate responses based on this information. If the user asks about something not covered in the data, respond politely and suggest they contact the support team by typing "talk to human".`
+          },
           { role: 'user', content: message },
         ],
       });
@@ -132,6 +429,7 @@ router.post('/chat', [
     chat.messages.push({
       text: aiResponse,
       sender: 'bot',
+      name: 'EcoBuddy',
       timestamp: new Date(),
     });
 
@@ -152,6 +450,30 @@ router.post('/chat', [
     }
 
     await chat.save();
+
+    // Emit the AI response to the admin via Socket.IO
+    req.app.get('io').to('admins').emit('message', {
+      userId: chat.userId,
+      text: aiResponse,
+      sender: 'bot',
+      name: 'EcoBuddy',
+      timestamp: new Date().toISOString(),
+    });
+    req.app.get('io').to(chat.userId).emit('message', {
+      userId: chat.userId,
+      text: aiResponse,
+      sender: 'bot',
+      name: 'EcoBuddy',
+      timestamp: new Date().toISOString(),
+    });
+
+    // Emit a 'new-chat' event to notify admins of the new chat
+    req.app.get('io').to('admins').emit('new-chat', {
+      userId: chat.userId,
+      name: chat.name,
+      email: chat.email,
+      socketId: null,
+    });
 
     res.json({ message: aiResponse, awaitingHuman: false, userId: chat.userId });
   } catch (err) {

@@ -1,3 +1,4 @@
+// index.js (or server.js)
 require("dotenv").config();
 
 const express = require("express");
@@ -234,6 +235,9 @@ const io = require('socket.io')(server, {
   },
 });
 
+// Attach io to the app for use in routes
+app.set('io', io);
+
 const Chat = require('./models/Chat');
 const sendEmail = require('./utils/sendEmail');
 
@@ -246,11 +250,17 @@ io.on('connection', (socket) => {
   socket.on('admin-login', () => {
     console.log('Admin logged in:', socket.id);
     socket.join('admins');
+    console.log('Admin joined admins room');
   });
 
   socket.on('join-room', (userId) => {
     console.log('Client joined room:', userId);
     socket.join(userId);
+  });
+
+  socket.on('leave-room', (userId) => {
+    console.log('Client leaving room:', userId);
+    socket.leave(userId);
   });
 
   socket.on('request-human', async (data) => {
@@ -265,6 +275,7 @@ io.on('connection', (socket) => {
       // Check if admins are available
       const adminRoom = io.sockets.adapter.rooms.get('admins');
       const adminCount = adminRoom ? adminRoom.size : 0;
+      console.log(`Number of admins in room: ${adminCount}`);
 
       if (adminCount === 0) {
         io.to(data.userId).emit('no-admins', {
@@ -273,14 +284,17 @@ io.on('connection', (socket) => {
         return;
       }
 
-      if (hasPendingRequest) {
-        io.to('admins').emit('chat-notification', {
-          userId: data.userId,
-          name: data.name,
-          email: data.email,
-          message: 'User has requested to talk to a human again.',
-        });
-      } else {
+      // Always emit a chat-notification event to notify the admin
+      console.log('Emitting chat-notification to admins');
+      io.to('admins').emit('chat-notification', {
+        userId: data.userId,
+        name: data.name,
+        email: data.email,
+        message: 'User has requested to talk to a human.',
+      });
+
+      if (!hasPendingRequest) {
+        console.log('Emitting chat-request to admins');
         io.to('admins').emit('chat-request', {
           userId: data.userId,
           socketId: socket.id,
@@ -300,7 +314,8 @@ io.on('connection', (socket) => {
       clearTimeout(existingChat.timeout);
     }
 
-    io.to(data.userSocketId).emit('human-connected', {
+    console.log(`Emitting human-connected to userId room: ${data.userId}`);
+    io.to(data.userId).emit('human-connected', {
       message: 'A human agent has joined the chat!',
     });
 
@@ -322,6 +337,7 @@ io.on('connection', (socket) => {
       text: data.message,
       sender: 'user',
       timestamp: new Date(),
+      userId: data.userId, // Include userId in the message event
     });
 
     // Reset inactivity timeout
@@ -367,6 +383,7 @@ io.on('connection', (socket) => {
       text: data.message,
       sender: data.sender || 'admin',
       timestamp: data.timestamp || new Date(),
+      userId: data.userId, // Include userId in the message event
     });
 
     // Reset inactivity timeout
