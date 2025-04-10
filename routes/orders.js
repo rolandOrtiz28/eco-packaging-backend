@@ -1,15 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
-const Settings = require('../models/Settings'); // Import the Settings model
+const Settings = require('../models/Settings');
 const { body, validationResult } = require('express-validator');
 const paypal = require('@paypal/checkout-server-sdk');
+const logger = require('../config/logger'); // Ensure logger is imported
 
 // PayPal Configuration
 const environment = process.env.NODE_ENV === 'production'
   ? new paypal.core.LiveEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET)
   : new paypal.core.SandboxEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET);
 const paypalClient = new paypal.core.PayPalHttpClient(environment);
+
+// Middleware to check if user is admin using session
+const isAdmin = (req, res, next) => {
+  if (req.isAuthenticated() && req.user && req.user.role === 'admin') {
+    return next();
+  }
+  logger.warn('Unauthorized access attempt to admin route', { user: req.user });
+  return res.status(403).json({ error: 'Unauthorized: Admin access required' });
+};
+
+// GET /api/orders - Fetch all orders (Admin only)
+router.get('/', isAdmin, async (req, res) => {
+  try {
+    const orders = await Order.find().populate('userId', 'email'); // Populate user email for better display
+    const transformedOrders = orders.map(order => ({
+      ...order.toObject(),
+      id: order._id.toString(),
+      _id: undefined,
+    }));
+    res.json(transformedOrders);
+  } catch (err) {
+    logger.error('Error fetching orders:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 // POST /api/order/create - Create PayPal order and return approval URL
 router.post('/create', [
@@ -20,7 +46,7 @@ router.post('/create', [
   body('items.*.price').isFloat({ min: 0 }).withMessage('Price must be a positive number'),
   body('items.*.pcsPerCase').isInt({ min: 1 }).withMessage('pcsPerCase must be a positive integer'),
   body('total').isFloat({ min: 0 }).withMessage('Total must be a positive number'),
-  body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'), // Add discount validation
+  body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -126,7 +152,7 @@ router.post('/complete', [
   body('items.*.price').isFloat({ min: 0 }).withMessage('Price must be a positive number'),
   body('items.*.pcsPerCase').isInt({ min: 1 }).withMessage('pcsPerCase must be a positive integer'),
   body('total').isFloat({ min: 0 }).withMessage('Total must be a positive number'),
-  body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'), // Add discount validation
+  body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -178,7 +204,7 @@ router.post('/complete', [
         pcsPerCase: item.pcsPerCase,
       })),
       total,
-      discount, // Save discount in the order
+      discount,
       paymentId,
       paymentStatus: 'COMPLETED',
     });
@@ -192,5 +218,46 @@ router.post('/complete', [
     res.status(500).json({ error: 'Failed to save order', details: err.message });
   }
 });
+
+router.put(
+  '/:id/status',
+  isAdmin,
+  [
+    body('status')
+      .isIn(['Processing', 'Shipped', 'Delivered', 'Cancelled'])
+      .withMessage('Invalid status. Must be one of: Processing, Shipped, Delivered, Cancelled'),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const { id } = req.params;
+      const { status } = req.body;
+
+      const order = await Order.findById(id);
+      if (!order) {
+        logger.warn(`Order with ID ${id} not found`);
+        return res.status(404).json({ error: 'Order not found' });
+      }
+
+      order.status = status; // Update the status field, not paymentStatus
+      await order.save();
+
+      logger.info(`Updated status of order with ID ${id} to ${status}`);
+      const transformedOrder = {
+        ...order.toObject(),
+        id: order._id.toString(),
+        _id: undefined,
+      };
+      res.json(transformedOrder);
+    } catch (err) {
+      logger.error(`Error updating order status with ID ${req.params.id}:`, err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  }
+);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Lead = require('../models/Lead');
+const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 
 // POST /contact - Submit contact form
@@ -32,34 +33,6 @@ router.post('/contact', [
   }
 });
 
-// POST /quote - Submit quote request
-router.post('/quote', [
-  body('name').trim().notEmpty().withMessage('Name is required'),
-  body('email').isEmail().withMessage('Invalid email'),
-  body('message').trim().notEmpty().withMessage('Message is required'),
-], async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    console.warn('Validation errors in quote request:', errors.array());
-    return res.status(400).json({ errors: errors.array() });
-  }
-  try {
-    console.log('Submitting quote request:', req.body);
-    const { name, email, message } = req.body;
-    const lead = new Lead({
-      name,
-      email,
-      source: 'Quote Request',
-      date: new Date().toISOString().split('T')[0],
-      message,
-    });
-    await lead.save();
-    res.status(201).json({ message: 'Quote request submitted' });
-  } catch (err) {
-    console.error('Error submitting quote request:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
 
 // GET /leads - Fetch all leads (for admin)
 router.get('/leads', async (req, res) => {
@@ -80,6 +53,16 @@ router.delete('/leads/clear', async (req, res) => {
   } catch (err) {
     console.error('Error clearing leads:', err.message, err.stack);
     res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+});
+
+router.get('/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    console.error('Error fetching users:', err);
+    res.status(500).json({ error: 'Server error' });
   }
 });
 

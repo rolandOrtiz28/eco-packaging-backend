@@ -198,6 +198,7 @@ app.use("/api", require("./routes/chat"));
 app.use("/api/order", require("./routes/orders"));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
+app.use('/api', require('./routes/subscribers'));
 
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');

@@ -5285,3 +5285,265 @@
 {"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T03:25:23.751Z"}
 {"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T03:25:23.754Z"}
 {"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T03:25:23.756Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T03:47:08.072Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T03:47:08.357Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T03:47:08.486Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T03:47:08.503Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T03:47:08.513Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T03:47:11.006Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T03:47:11.067Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T03:47:11.275Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T03:47:11.280Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T03:47:11.281Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T04:14:24.329Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T04:14:26.133Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T04:14:26.181Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T04:14:36.219Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T04:14:36.709Z"}
+{"level":"info","message":"User logged out: gwapohejunjo@gmail.com","timestamp":"2025-04-10T04:15:30.238Z"}
+{"level":"info","message":"Login attempt for email: rolandortiz281995@gmail.com","timestamp":"2025-04-10T04:15:40.667Z"}
+{"level":"info","message":"User logged in: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T04:15:40.754Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T04:15:44.580Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T05:59:28.178Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T05:59:28.258Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T05:59:28.460Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T05:59:28.494Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T05:59:28.495Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T05:59:48.165Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:01:37.574Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:01:37.757Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:05:53.521Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:05:57.536Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:05:57.688Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:11:58.154Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:11:58.349Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:15:46.424Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:18:04.741Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T06:28:18.236Z"}
+{"level":"info","message":"Created new product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T06:31:26.858Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:31:43.791Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:31:43.829Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T06:31:44.047Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T06:31:44.061Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T06:31:44.065Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:31:45.978Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:33:59.059Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:33:59.100Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T06:35:53.102Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:35:58.965Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:35:59.048Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:35:59.102Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T06:36:54.578Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:36:57.488Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:36:57.551Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:36:57.613Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:07.940Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:08.011Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:15.115Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:15.153Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:34.382Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:34.408Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:44.111Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:39:44.143Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:40:46.529Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:41:59.128Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:41:59.170Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:42:33.657Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:53:44.706Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:53:44.860Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T06:53:59.280Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T06:54:06.495Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:54:06.552Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:56:49.948Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:57:54.655Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:58:14.250Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T06:58:14.276Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T06:59:20.522Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:00:03.593Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:00:09.042Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:00:39.194Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:00:51.164Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T07:01:05.676Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:01:09.191Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T07:01:42.416Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:01:45.272Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:01:45.317Z"}
+{"level":"info","message":"Updated product: Reusable Eco Tote Bag (ID: 67f765be564cf177870262cf)","timestamp":"2025-04-10T07:02:16.527Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:02:19.835Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:02:19.874Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f53fa696d4ab0e5eb1254c)","timestamp":"2025-04-10T07:07:04.326Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:07:11.766Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:07:11.807Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:08:46.219Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:08:46.236Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:09:30.596Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T07:09:33.555Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T07:09:33.580Z"}
+{"level":"info","message":"Fetching product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T07:09:56.633Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T07:09:56.666Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:11:53.764Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:11:53.882Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f53fa696d4ab0e5eb1254c)","timestamp":"2025-04-10T07:12:07.468Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:12:12.569Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:12:18.690Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:12:18.711Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f53fa696d4ab0e5eb1254c)","timestamp":"2025-04-10T07:12:29.682Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:12:31.845Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:12:31.971Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-10T07:12:31.990Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:12:38.021Z"}
+{"level":"info","message":"Updated product: Small Vest Bag (1/10 Small) (ID: 67f53fa696d4ab0e5eb12551)","timestamp":"2025-04-10T07:14:17.519Z"}
+{"level":"info","message":"Updated product: Small Vest Bag (1/10 Small) (ID: 67f53fa696d4ab0e5eb12551)","timestamp":"2025-04-10T07:14:29.869Z"}
+{"level":"info","message":"Updated product: Medium Vest Bag (1/8 Medium) (ID: 67f53fa696d4ab0e5eb12556)","timestamp":"2025-04-10T07:15:08.341Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:15:15.021Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:15:15.187Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T07:15:26.285Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:15:33.255Z"}
+{"level":"info","message":"Updated product: Large Vest Bag (1/6 Medium Duty) (ID: 67f53fa696d4ab0e5eb1255b)","timestamp":"2025-04-10T07:18:34.653Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:18:48.842Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:18:49.107Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1255b","timestamp":"2025-04-10T07:18:52.537Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1255b","timestamp":"2025-04-10T07:18:52.556Z"}
+{"level":"info","message":"Updated product: Large+ Vest Bag (1/6 Plus, A Bit Larger) (ID: 67f53fa696d4ab0e5eb12560)","timestamp":"2025-04-10T07:19:28.725Z"}
+{"level":"info","message":"Updated product: 2X-Large Vest Bag (1/4 XX-Large) (ID: 67f53fa696d4ab0e5eb12565)","timestamp":"2025-04-10T07:19:51.233Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:19:55.307Z"}
+{"level":"info","message":"Updated product: 2X-Large Vest Bag (1/4 XX-Large) (ID: 67f53fa696d4ab0e5eb12565)","timestamp":"2025-04-10T07:20:03.792Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:20:06.088Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:20:06.171Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T07:22:51.726Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:23:03.848Z"}
+{"level":"info","message":"Updated product: Jumbo Size (Supersized Jumbo) (ID: 67f53fa696d4ab0e5eb1256a)","timestamp":"2025-04-10T07:23:46.034Z"}
+{"level":"info","message":"Updated product: Heavy Duty Large Vest Bag (1/6 Large) (ID: 67f53fa696d4ab0e5eb1256f)","timestamp":"2025-04-10T07:24:49.033Z"}
+{"level":"info","message":"Updated product: Die Cut Handle Bag (ID: 67f53fa696d4ab0e5eb12574)","timestamp":"2025-04-10T07:25:09.984Z"}
+{"level":"info","message":"Updated product: 2 Bottle Wine Tote Bag (ID: 67f53fa696d4ab0e5eb12579)","timestamp":"2025-04-10T07:25:47.804Z"}
+{"level":"info","message":"Updated product: Large 1/6 Tote Bag (ID: 67f53fa696d4ab0e5eb1257e)","timestamp":"2025-04-10T07:27:01.113Z"}
+{"level":"info","message":"Updated product: Thermal Insulated Tote Bag (ID: 67f53fa696d4ab0e5eb12588)","timestamp":"2025-04-10T07:29:22.537Z"}
+{"level":"info","message":"Updated product: Heavy Duty Grocery Tote Bag (ID: 67f53fa696d4ab0e5eb1258d)","timestamp":"2025-04-10T07:29:35.485Z"}
+{"level":"info","message":"Updated product: 6 Bottle Wine Bag (ID: 67f53fa696d4ab0e5eb12592)","timestamp":"2025-04-10T07:30:23.988Z"}
+{"level":"info","message":"Updated product: Mylar Film Gift Bag (ID: 67f53fa696d4ab0e5eb12596)","timestamp":"2025-04-10T07:31:30.631Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:31:36.578Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:31:36.622Z"}
+{"level":"info","message":"Updated product: Jumbo Size (Supersized Jumbo) (ID: 67f53fa696d4ab0e5eb1256a)","timestamp":"2025-04-10T07:31:50.456Z"}
+{"level":"info","message":"Updated product: Heavy Duty Large Vest Bag (1/6 Large) (ID: 67f53fa696d4ab0e5eb1256f)","timestamp":"2025-04-10T07:31:56.436Z"}
+{"level":"info","message":"Fetched 17 products from database","timestamp":"2025-04-10T07:31:58.664Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:31:58.716Z"}
+{"level":"info","message":"Deleted product with ID: 67f765be564cf177870262cf","timestamp":"2025-04-10T07:32:09.314Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:32:13.635Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:32:13.716Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:32:15.328Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:32:15.431Z"}
+{"level":"info","message":"Updated product: Jumbo Grocery Tote Bag (ID: 67f53fa696d4ab0e5eb12583)","timestamp":"2025-04-10T07:32:50.297Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:32:52.654Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:32:52.732Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:33:21.545Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:33:31.154Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:33:41.957Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T07:33:42.003Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T07:33:42.007Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T07:33:42.008Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T07:36:20.528Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:55:21.911Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T07:55:22.088Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T07:55:23.180Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T07:55:23.239Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T08:03:16.165Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T08:03:18.339Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T08:03:18.393Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T08:03:41.880Z"}
+{"level":"info","message":"Sent reply email for quote with ID 67f77a545986ea9ba4334642","timestamp":"2025-04-10T08:03:48.579Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:04:42.195Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T08:04:42.289Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T08:04:42.302Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T08:04:42.304Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:18:00.126Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T08:18:00.237Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T08:18:00.245Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T08:18:00.253Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:22:25.312Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T08:22:25.404Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T08:22:25.410Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T08:22:25.412Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:22:39.069Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:33:21.788Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T08:33:21.884Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T08:33:21.968Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T08:33:21.996Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T08:33:22.017Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T08:33:28.351Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T08:41:26.011Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T08:41:26.164Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T08:41:26.168Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T08:41:26.169Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:19:27.673Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:19:27.801Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T09:19:27.864Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T09:19:27.867Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T09:19:27.871Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:20:11.504Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:20:15.009Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:20:15.091Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T09:20:15.211Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T09:20:15.215Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T09:20:15.216Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:20:50.715Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:21:04.319Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:21:53.206Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T09:21:53.264Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T09:21:53.267Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T09:21:53.268Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:24:06.675Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T09:24:06.761Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T09:24:06.771Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T09:24:06.773Z"}
+{"level":"info","message":"User logged out: rolandortiz281995@gmail.com","timestamp":"2025-04-10T09:24:08.651Z"}
+{"level":"info","message":"Login attempt for email: gwapohejunjo@gmail.com","timestamp":"2025-04-10T09:24:19.108Z"}
+{"level":"info","message":"User logged in: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T09:24:19.194Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:24:19.387Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-10T09:24:19.410Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-10T09:24:19.416Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-10T09:24:19.417Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T09:24:29.556Z"}
+{"level":"info","message":"Sent reply email for quote with ID 67f78e6943087c8f4d1b9d9d","timestamp":"2025-04-10T09:25:29.343Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T09:28:35.609Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T09:28:35.827Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:28:41.760Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:29:48.511Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:29:58.134Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:30:28.463Z"}
+{"level":"info","message":"Login attempt for email: rolandortiz281995@gmail.com","timestamp":"2025-04-10T09:32:13.084Z"}
+{"level":"info","message":"User logged in: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:32:13.174Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T09:32:55.522Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T09:32:55.889Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:32:56.259Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-10T09:34:58.651Z"}
+{"level":"info","message":"Fetching user with ID: 67f57e3174d3c5d25cbdc273","timestamp":"2025-04-10T09:35:14.768Z"}
+{"level":"info","message":"Fetched user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273) with 4 orders","timestamp":"2025-04-10T09:35:14.782Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T09:42:05.999Z"}
+{"level":"info","message":"Fetching user with ID: 67f57e3174d3c5d25cbdc273","timestamp":"2025-04-10T09:42:06.324Z"}
+{"level":"info","message":"Fetched user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273) with 4 orders","timestamp":"2025-04-10T09:42:06.339Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:42:06.680Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-10T09:44:42.733Z"}
+{"level":"info","message":"Fetching user with ID: 67f57e3174d3c5d25cbdc273","timestamp":"2025-04-10T09:44:42.877Z"}
+{"level":"info","message":"Fetched user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273) with 4 orders","timestamp":"2025-04-10T09:44:42.960Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T09:44:45.032Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:56:13.074Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:56:43.153Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:59:16.752Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T09:59:44.447Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:00:39.427Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:09:27.319Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:11:25.081Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:14:04.556Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:15:18.664Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:17:16.675Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:17:21.077Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:19:16.358Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T10:27:37.542Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T10:27:43.410Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T10:36:53.710Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T10:37:24.158Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T10:54:35.595Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T11:06:40.179Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T11:08:49.292Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-10T11:16:02.497Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-10T11:16:15.939Z"}
