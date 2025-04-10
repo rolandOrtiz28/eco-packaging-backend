@@ -6,7 +6,7 @@ const Chat = require('../models/Chat');
 const logger = require('../config/logger');
 const sendEmail = require('../utils/sendEmail');
 
-// routes/chat.js
+// Company data (unchanged)
 const companyData = {
   "company": {
     "name": "Eco Packaging Products Inc. (BagStory USA)",
@@ -313,6 +313,10 @@ router.post('/chat', [
       timestamp: new Date(),
     });
 
+    // Check if an admin is connected to this chat session
+    const activeChats = req.app.get('io').of('/').adapter.rooms; // Access active chats (Note: This requires adjustment based on how activeChats is stored)
+    const isAdminConnected = req.app.get('activeChats')?.has(chat.userId); // Check if an admin is connected
+
     // Check if user wants to talk to a human
     const wantsHuman = message.toLowerCase().includes('talk to human');
     if (wantsHuman) {
@@ -353,6 +357,15 @@ router.post('/chat', [
       });
       await chat.save();
 
+      // Emit the human request message to the client
+      req.app.get('io').to(chat.userId).emit('message', {
+        userId: chat.userId,
+        text: 'Your request has been sent to a human agent. Please wait for a response.',
+        sender: 'bot',
+        name: 'EcoBuddy',
+        timestamp: new Date().toISOString(),
+      });
+
       return res.json({
         message: 'Your request has been sent to a human agent. Please wait for a response.',
         awaitingHuman: true,
@@ -363,7 +376,6 @@ router.post('/chat', [
     // Handle follow-up email request
     if (message.toLowerCase().includes('follow-up email request')) {
       try {
-        // Send email to the client
         await sendEmail(
           email,
           'Follow-Up: Eco Packaging Support',
@@ -389,6 +401,13 @@ router.post('/chat', [
 
       await chat.save();
       return res.json({ message: 'Follow-up email sent successfully' });
+    }
+
+    // If an admin is connected, do not generate an AI response
+    if (isAdminConnected) {
+      console.log('Admin is connected, skipping AI response for user message:', message);
+      await chat.save();
+      return res.json({ message: 'Message received, admin is handling the chat.', awaitingHuman: false, userId: chat.userId });
     }
 
     // Integrate with OpenAI for basic inquiries
@@ -451,15 +470,16 @@ Provide detailed and accurate responses based on this information. If the user a
 
     await chat.save();
 
-    // Emit the AI response to the admin via Socket.IO
-    req.app.get('io').to('admins').emit('message', {
+    // Emit the AI response to the client and admin via Socket.IO
+    req.app.get('io').to(chat.userId).emit('message', {
       userId: chat.userId,
       text: aiResponse,
       sender: 'bot',
       name: 'EcoBuddy',
       timestamp: new Date().toISOString(),
     });
-    req.app.get('io').to(chat.userId).emit('message', {
+
+    req.app.get('io').to('admins').emit('message', {
       userId: chat.userId,
       text: aiResponse,
       sender: 'bot',
@@ -526,7 +546,7 @@ router.get('/chat/all', async (req, res) => {
 });
 
 // Endpoint to update chat session email
-router.put('/update-email', async (req, res) => {
+router.put('/chat/update-email', async (req, res) => {
   try {
     const { oldEmail, newEmail } = req.body;
     if (!oldEmail || !newEmail) {
@@ -555,13 +575,17 @@ router.put('/update-email', async (req, res) => {
 });
 
 router.delete('/chat/clear', async (req, res) => {
-    try {
-      await Chat.deleteMany({});
-      res.json({ message: 'All chat history cleared successfully' });
-    } catch (err) {
-      console.error('Error clearing chat history:', err.message, err.stack);
-      res.status(500).json({ error: 'Server error: ' + err.message });
-    }
-  });
+  try {
+    await Chat.deleteMany({});
+    res.json({ message: 'All chat history cleared successfully' });
+  } catch (err) {
+    console.error('Error clearing chat history:', err.message, err.stack);
+    res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+});
 
 module.exports = router;
+
+
+
+// base

@@ -1,4 +1,4 @@
-// index.js (or server.js)
+// index.js
 require("dotenv").config();
 
 const express = require("express");
@@ -195,6 +195,9 @@ app.use("/api", require("./routes/users"));
 app.use("/api", require("./routes/analytics"));
 app.use("/api", require("./routes/leads"));
 app.use("/api", require("./routes/chat"));
+app.use("/api/order", require("./routes/orders"));
+app.use('/api/promo', require('./routes/promo'));
+app.use('/api/settings', require('./routes/settings'));
 
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');
@@ -235,7 +238,6 @@ const io = require('socket.io')(server, {
   },
 });
 
-// Attach io to the app for use in routes
 app.set('io', io);
 
 const Chat = require('./models/Chat');
@@ -245,26 +247,26 @@ const sendEmail = require('./utils/sendEmail');
 const activeChats = new Map(); // userId -> { socketId, timeout }
 
 io.on('connection', (socket) => {
-  console.log('A client connected:', socket.id);
+  console.log('Server: A client connected:', socket.id);
 
   socket.on('admin-login', () => {
-    console.log('Admin logged in:', socket.id);
+    console.log('Server: Admin logged in:', socket.id);
     socket.join('admins');
-    console.log('Admin joined admins room');
+    console.log('Server: Admin joined admins room');
   });
 
   socket.on('join-room', (userId) => {
-    console.log('Client joined room:', userId);
+    console.log('Server: Client joined room:', { userId, socketId: socket.id });
     socket.join(userId);
   });
 
   socket.on('leave-room', (userId) => {
-    console.log('Client leaving room:', userId);
+    console.log('Server: Client leaving room:', { userId, socketId: socket.id });
     socket.leave(userId);
   });
 
   socket.on('request-human', async (data) => {
-    console.log('Request human received:', data);
+    console.log('Server: Request human received:', data);
     const chat = await Chat.findOne({ userId: data.userId });
     if (chat) {
       const hasPendingRequest = chat.messages.some(msg => 
@@ -272,20 +274,19 @@ io.on('connection', (socket) => {
         !chat.messages.some(m => m.text === 'A human agent has joined the chat!')
       );
 
-      // Check if admins are available
       const adminRoom = io.sockets.adapter.rooms.get('admins');
       const adminCount = adminRoom ? adminRoom.size : 0;
-      console.log(`Number of admins in room: ${adminCount}`);
+      console.log('Server: Number of admins in room:', adminCount);
 
       if (adminCount === 0) {
+        console.log('Server: No admins available, notifying user:', data.userId);
         io.to(data.userId).emit('no-admins', {
           message: 'Sorry, it looks like our team is currently unavailable. Please provide your email, and we’ll follow up with you soon!',
         });
         return;
       }
 
-      // Always emit a chat-notification event to notify the admin
-      console.log('Emitting chat-notification to admins');
+      console.log('Server: Emitting chat-notification to admins');
       io.to('admins').emit('chat-notification', {
         userId: data.userId,
         name: data.name,
@@ -294,7 +295,7 @@ io.on('connection', (socket) => {
       });
 
       if (!hasPendingRequest) {
-        console.log('Emitting chat-request to admins');
+        console.log('Server: Emitting chat-request to admins');
         io.to('admins').emit('chat-request', {
           userId: data.userId,
           socketId: socket.id,
@@ -307,53 +308,50 @@ io.on('connection', (socket) => {
   });
 
   socket.on('accept-chat', (data) => {
-    console.log('Admin accepted chat:', data);
-    // Clear any existing timeout for this userId
+    console.log('Server: Admin accepted chat:', data);
     if (activeChats.has(data.userId)) {
       const existingChat = activeChats.get(data.userId);
       clearTimeout(existingChat.timeout);
     }
 
-    console.log(`Emitting human-connected to userId room: ${data.userId}`);
+    console.log('Server: Emitting human-connected to userId room:', data.userId);
     io.to(data.userId).emit('human-connected', {
       message: 'A human agent has joined the chat!',
     });
 
-    // Start inactivity timeout for this chat
     const timeout = setTimeout(() => {
-      console.log(`Inactivity timeout triggered for userId: ${data.userId}`);
+      console.log('Server: Inactivity timeout triggered for userId:', data.userId);
       io.to(data.userId).emit('inactivity-disconnect', {
         message: "You’ve been disconnected due to inactivity. Type 'talk to human' to reconnect.",
       });
       activeChats.delete(data.userId);
-    }, 120000); // 2 minutes
+    }, 300000); // 5 minutes
 
-    activeChats.set(data.userId, { socketId: data.userSocketId, timeout });
+    activeChats.set(data.userId, { socketId: socket.id, timeout });
   });
 
   socket.on('user-message', async (data) => {
-    console.log('User message received:', data);
+    console.log('Server: User message received:', data);
+    console.log('Server: Broadcasting message to room:', data.userId);
     io.to(data.userId).emit('message', {
       text: data.message,
       sender: 'user',
-      timestamp: new Date(),
-      userId: data.userId, // Include userId in the message event
+      timestamp: data.timestamp || new Date(),
+      userId: data.userId,
+      name: data.name,
     });
 
-    // Reset inactivity timeout
     if (activeChats.has(data.userId)) {
       const chatData = activeChats.get(data.userId);
       clearTimeout(chatData.timeout);
       chatData.timeout = setTimeout(() => {
-        console.log(`Inactivity timeout triggered for userId: ${data.userId}`);
+        console.log('Server: Inactivity timeout triggered for userId:', data.userId);
         io.to(data.userId).emit('inactivity-disconnect', {
           message: "You’ve been disconnected due to inactivity. Type 'talk to human' to reconnect.",
         });
         activeChats.delete(data.userId);
-      }, 120000);
+      }, 300000);
       activeChats.set(data.userId, chatData);
-    } else {
-      console.log(`No active chat found for userId: ${data.userId}`);
     }
 
     try {
@@ -362,41 +360,39 @@ io.on('connection', (socket) => {
         chat.messages.push({
           text: data.message,
           sender: 'user',
-          timestamp: new Date(),
+          timestamp: new Date(data.timestamp),
         });
         await chat.save();
+        console.log('Server: User message saved to database:', data.message);
+      } else {
+        console.log('Server: No chat session found for userId:', data.userId);
       }
     } catch (error) {
-      console.error('Error saving user message:', error);
-      logger.error('Error saving user message:', error.message, error.stack);
-      await sendEmail(
-        process.env.ADMIN_EMAIL,
-        'Error: User Message Save Failed',
-        `Failed to save user message for user ${data.userId}. Error: ${error.message}`
-      );
+      console.error('Server: Error saving user message:', error);
     }
   });
 
   socket.on('admin-message', async (data) => {
-    console.log('Admin message received:', data);
+    console.log('Server: Admin message received:', data);
+    console.log('Server: Broadcasting admin message to room:', data.userId);
     io.to(data.userId).emit('message', {
       text: data.message,
       sender: data.sender || 'admin',
       timestamp: data.timestamp || new Date(),
-      userId: data.userId, // Include userId in the message event
+      userId: data.userId,
+      name: data.name,
     });
 
-    // Reset inactivity timeout
     if (activeChats.has(data.userId)) {
       const chatData = activeChats.get(data.userId);
       clearTimeout(chatData.timeout);
       chatData.timeout = setTimeout(() => {
-        console.log(`Inactivity timeout triggered for userId: ${data.userId}`);
+        console.log('Server: Inactivity timeout triggered for userId:', data.userId);
         io.to(data.userId).emit('inactivity-disconnect', {
           message: "You’ve been disconnected due to inactivity. Type 'talk to human' to reconnect.",
         });
         activeChats.delete(data.userId);
-      }, 120000);
+      }, 300000);
       activeChats.set(data.userId, chatData);
     }
 
@@ -409,20 +405,15 @@ io.on('connection', (socket) => {
           timestamp: new Date(data.timestamp),
         });
         await chat.save();
+        console.log('Server: Admin message saved to database:', data.message);
       }
     } catch (error) {
-      console.error('Error saving admin message:', error);
-      logger.error('Error saving admin message:', error.message, error.stack);
-      await sendEmail(
-        process.env.ADMIN_EMAIL,
-        'Error: Admin Message Save Failed',
-        `Failed to save admin message for user ${data.userId}. Error: ${error.message}`
-      );
+      console.error('Server: Error saving admin message:', error);
     }
   });
 
   socket.on('disconnect', () => {
-    console.log('A client disconnected:', socket.id);
+    console.log('Server: A client disconnected:', socket.id);
     if (socket.rooms.has('admins')) {
       io.to('waiting-users').emit('no-admins', {
         message: 'Sorry, it looks like our team is currently unavailable. Please provide your email, and we’ll follow up with you soon!',
@@ -430,6 +421,9 @@ io.on('connection', (socket) => {
     }
   });
 });
+
+// Export activeChats for use in routes
+app.set('activeChats', activeChats);
 
 // Graceful Shutdown
 process.on("SIGTERM", () => {
@@ -440,3 +434,7 @@ process.on("SIGTERM", () => {
     process.exit(0);
   });
 });
+
+
+
+// base

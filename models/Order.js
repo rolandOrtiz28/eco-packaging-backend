@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const itemSchema = new mongoose.Schema({
   productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
   quantity: { type: Number, required: true },
-  price: { type: Number, required: true },
+  pricePerCase: { type: Number, required: true },
+  name: { type: String, required: true },
+  moq: { type: Number, required: true },
+  pcsPerCase: { type: Number, required: true },
 });
 
 const orderSchema = new mongoose.Schema({
@@ -13,6 +16,9 @@ const orderSchema = new mongoose.Schema({
   status: { type: String, enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled'], default: 'Processing' },
   items: [itemSchema],
   total: { type: Number, required: true },
+  discount: { type: Number, default: 0 }, // Add discount field
+  paymentId: { type: String, required: true },
+  paymentStatus: { type: String, enum: ['PENDING', 'COMPLETED', 'FAILED'], default: 'PENDING' },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);
