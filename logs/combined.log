@@ -6404,3 +6404,11 @@
 {"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:20:41.042Z"}
 {"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:20:41.121Z"}
 {"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:20:41.135Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T16:36:08.594Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:36:10.441Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:36:10.538Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:36:10.558Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T16:37:17.825Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:37:19.822Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:37:19.921Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:37:19.933Z"}

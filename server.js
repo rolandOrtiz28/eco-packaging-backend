@@ -245,7 +245,17 @@ const server = app.listen(PORT, () => {
 // Socket.IO setup
 const io = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "http://localhost:8080",
+        "https://bagstory.editedgemultimedia.com",
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST"],
     credentials: true,
   },
