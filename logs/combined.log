@@ -6341,3 +6341,59 @@
 {"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:28:12.880Z"}
 {"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T15:28:22.506Z"}
 {"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:28:24.541Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:31:56.246Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:31:58.840Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:32:00.744Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:32:10.796Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:32:12.836Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:32:18.434Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:32:18.455Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:32:18.465Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:32:20.457Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:32:20.515Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:32:20.527Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T15:32:25.466Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:32:27.488Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:32:27.570Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:32:27.581Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:33:27.320Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:33:27.334Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:33:27.340Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:33:29.337Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:33:29.384Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:33:29.395Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:35:22.704Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:35:22.776Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:35:22.782Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T15:35:25.610Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:35:27.618Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:35:27.730Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:35:27.739Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:36:29.792Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:36:29.875Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:36:29.881Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T15:36:31.166Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:36:33.202Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:36:33.294Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:36:33.302Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:39:14.254Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:39:14.330Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:39:14.336Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:39:15.830Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:39:15.945Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:39:15.994Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T15:39:17.898Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:39:19.884Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:39:20.010Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T15:39:20.021Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:03:58.248Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:03:58.272Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:03:58.281Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T16:04:00.781Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:04:02.794Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:04:02.840Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:04:02.874Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T16:04:12.008Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:04:14.044Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:04:14.107Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:04:14.114Z"}
