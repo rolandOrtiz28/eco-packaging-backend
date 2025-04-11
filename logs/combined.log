@@ -6397,3 +6397,10 @@
 {"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:04:14.044Z"}
 {"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:04:14.107Z"}
 {"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:04:14.114Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:19:23.430Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:19:23.576Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:19:23.586Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T16:20:39.064Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:20:41.042Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:20:41.121Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:20:41.135Z"}

@@ -34,7 +34,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.options('*', cors());
+
 
 app.use((req, res, next) => {
   res.on('finish', () => {
