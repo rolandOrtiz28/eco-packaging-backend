@@ -5695,3 +5695,453 @@
 {"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T05:59:08.628Z"}
 {"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T06:03:50.738Z"}
 {"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T06:09:04.453Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T07:39:43.434Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T07:40:00.503Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T07:40:00.531Z"}
+{"level":"info","message":"Login attempt for email: gwapohejunjo@gmail.com","timestamp":"2025-04-11T07:41:04.916Z"}
+{"level":"info","message":"User logged in: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-11T07:41:05.015Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T07:41:05.214Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T07:41:05.254Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T07:41:05.258Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T07:41:05.262Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T07:41:57.104Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T07:41:57.326Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-11T07:41:57.335Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T07:41:57.396Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T07:41:57.411Z"}
+{"level":"info","message":"User logged out: gwapohejunjo@gmail.com","timestamp":"2025-04-11T07:42:13.345Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T07:42:28.345Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:07:31.908Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T08:07:32.261Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:08:12.262Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T08:08:12.908Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:08:44.090Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T08:08:44.632Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:14:40.882Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:19:19.456Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:33:09.006Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:38:46.909Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T08:51:15.896Z"}
+{"level":"info","message":"Login attempt for email: gwapohejunjo@gmail.com","timestamp":"2025-04-11T08:57:16.193Z"}
+{"level":"info","message":"User logged in: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-11T08:57:16.284Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T08:57:16.430Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T08:57:16.461Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T08:57:16.466Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T08:57:16.470Z"}
+{"level":"info","message":"User logged out: gwapohejunjo@gmail.com","timestamp":"2025-04-11T09:05:14.291Z"}
+{"level":"info","message":"Login attempt for email: gwapohejunjo@gmail.com","timestamp":"2025-04-11T09:05:19.595Z"}
+{"level":"info","message":"User logged in: gwapohejunjo@gmail.com (ID: 67f57e3174d3c5d25cbdc273)","timestamp":"2025-04-11T09:05:19.677Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:05:19.804Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:05:19.830Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:05:19.834Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:05:19.836Z"}
+{"level":"info","message":"User logged out: gwapohejunjo@gmail.com","timestamp":"2025-04-11T09:05:24.534Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T09:08:16.856Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:10:27.974Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:10:28.075Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:10:28.087Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:10:28.090Z"}
+{"level":"info","message":"User registration attempt: mason.holt287@gmail.com","timestamp":"2025-04-11T09:11:09.013Z"}
+{"level":"info","message":"User registered and logged in: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:11:09.118Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:11:09.445Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:11:09.486Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:11:09.551Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:11:09.564Z"}
+{"level":"info","message":"Login attempt for email: mason.holt287@gmail.com","timestamp":"2025-04-11T09:12:08.752Z"}
+{"level":"info","message":"User logged in: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:12:08.843Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:12:09.017Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:12:09.053Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:12:09.064Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:12:09.067Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:12:32.891Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:16:19.358Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:16:21.071Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:16:22.849Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:16:22.898Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:16:24.476Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:16:24.505Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:16:24.612Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:16:24.616Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:16:24.618Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:17:03.159Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T09:17:09.825Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 1 orders","timestamp":"2025-04-11T09:17:09.832Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:17:34.332Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:17:35.748Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:17:35.999Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T09:17:36.102Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 1 orders","timestamp":"2025-04-11T09:17:36.121Z"}
+{"level":"info","message":"Updated status of order with ID 67f8de108e8d63d05102ca50 to Shipped","timestamp":"2025-04-11T09:18:03.618Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:18:07.645Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T09:18:07.686Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 1 orders","timestamp":"2025-04-11T09:18:07.690Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:18:13.292Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:18:13.340Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:18:13.344Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:18:13.348Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T09:18:21.814Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:18:29.326Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:39:34.462Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:39:34.529Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:39:34.533Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:39:34.537Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:41:15.682Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:41:17.584Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:41:18.169Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:41:18.196Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:41:18.304Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:41:18.310Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:41:18.313Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:47:46.086Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:47:46.735Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T09:47:46.780Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T09:47:46.817Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T09:47:46.820Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T09:47:46.821Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T09:48:09.439Z"}
+{"code":"ECO-FRIENDLY","level":"info","message":"Applying promo code with request body:","subtotal":100,"timestamp":"2025-04-11T09:48:50.931Z"}
+{"0":"Invalid phone number","level":"warn","message":"Validation errors in user update:","timestamp":"2025-04-11T09:49:25.839Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T09:52:14.622Z"}
+{"0":"Invalid phone number","level":"warn","message":"Validation errors in user update:","timestamp":"2025-04-11T09:54:05.500Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:00:09.513Z"}
+{"level":"info","message":"Updating user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:00:18.713Z"}
+{"level":"info","message":"Updated user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:00:18.751Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:00:18.803Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:00:53.952Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:03:44.269Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 2 orders","timestamp":"2025-04-11T10:03:44.280Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:05:39.870Z"}
+{"level":"info","message":"Fetching current user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:06:02.365Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:06:08.370Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:06:08.377Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:08:06.857Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:08:06.870Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:08:30.654Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:08:30.659Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:09:30.240Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:09:30.259Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:10:20.818Z"}
+{"level":"info","message":"Fetched user: mason.holt287@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:10:20.832Z"}
+{"level":"info","message":"Updating user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:10:35.915Z"}
+{"level":"info","message":"Updated user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:10:35.919Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:10:35.955Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:10:35.982Z"}
+{"level":"info","message":"Fetched user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:10:35.989Z"}
+{"level":"info","message":"Fetching user with ID: 67f8dcad419c40b180ab2ad5","timestamp":"2025-04-11T10:10:36.038Z"}
+{"level":"info","message":"Fetched user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5) with 3 orders","timestamp":"2025-04-11T10:10:36.044Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T10:10:58.327Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:12:55.086Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T10:12:55.121Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T10:12:55.126Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T10:12:55.127Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T10:13:27.397Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:13:59.301Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:13:59.338Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:14:20.491Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:17:19.594Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:17:19.627Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:18:16.226Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:18:16.345Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:18:16.393Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:21:26.899Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:27:07.604Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:27:07.648Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:33:36.307Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:33:36.352Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:33:43.589Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T10:34:25.610Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:34:25.758Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T10:38:57.904Z"}
+{"level":"info","message":"Migration completed. Updated 16 products.","timestamp":"2025-04-11T10:38:57.927Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T10:39:26.972Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:39:27.063Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:43:17.053Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f53fa696d4ab0e5eb1254c)","timestamp":"2025-04-11T10:43:20.722Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:43:29.759Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:43:29.932Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:43:30.031Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f53fa696d4ab0e5eb1254c)","timestamp":"2025-04-11T10:43:50.434Z"}
+{"level":"info","message":"Fetching product with ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:43:55.132Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:43:55.225Z"}
+{"level":"info","message":"Fetching related products for product ID: 67f53fa696d4ab0e5eb1254c","timestamp":"2025-04-11T10:43:55.406Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T10:44:00.457Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T10:44:03.932Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T10:44:03.940Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T10:44:03.949Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T10:44:18.071Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T10:44:18.074Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T10:44:18.079Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T10:45:11.370Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:45:11.726Z"}
+{"level":"info","message":"Fetching blog post with ID: 67","timestamp":"2025-04-11T10:45:13.087Z"}
+{"kind":"ObjectId","level":"error","message":"Error fetching blog post with ID 67: Cast to ObjectId failed for value \"67\" (type string) at path \"_id\" for model \"BlogPost\"","path":"_id","reason":{},"stack":"CastError: Cast to ObjectId failed for value \"67\" (type string) at path \"_id\" for model \"BlogPost\"\n    at SchemaObjectId.cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:4907:12)\n    at Query._castConditions (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:4456:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\routes\\blogPosts.js:32:22","stringValue":"\"67\"","timestamp":"2025-04-11T10:45:13.091Z","value":"67","valueType":"string"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:45:13.187Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T10:45:14.710Z"}
+{"level":"info","message":"Fetching all blog posts","timestamp":"2025-04-11T10:45:14.970Z"}
+{"level":"info","message":"Fetched 5 blog posts from database","timestamp":"2025-04-11T10:45:14.974Z"}
+{"level":"info","message":"Transformed 5 blog posts","timestamp":"2025-04-11T10:45:14.978Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T10:45:15.093Z"}
+{"level":"info","message":"Fetching blog post with ID: 67","timestamp":"2025-04-11T10:45:16.339Z"}
+{"kind":"ObjectId","level":"error","message":"Error fetching blog post with ID 67: Cast to ObjectId failed for value \"67\" (type string) at path \"_id\" for model \"BlogPost\"","path":"_id","reason":{},"stack":"CastError: Cast to ObjectId failed for value \"67\" (type string) at path \"_id\" for model \"BlogPost\"\n    at SchemaObjectId.cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:4907:12)\n    at Query._castConditions (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\node_modules\\mongoose\\lib\\query.js:4456:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\Users\\SuperB Gears\\Documents\\eco-packaging-backend\\routes\\blogPosts.js:32:22","stringValue":"\"67\"","timestamp":"2025-04-11T10:45:16.341Z","value":"67","valueType":"string"}
+{"level":"info","message":"Fetching blog post with ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:48:42.217Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (ID: 67f53fa696d4ab0e5eb1259d)","timestamp":"2025-04-11T10:48:42.221Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:48:56.324Z"}
+{"level":"info","message":"Fetching blog post with ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:48:56.352Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (ID: 67f53fa696d4ab0e5eb1259d)","timestamp":"2025-04-11T10:48:56.426Z"}
+{"level":"info","message":"Fetching blog post with ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:49:21.406Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (ID: 67f53fa696d4ab0e5eb1259d)","timestamp":"2025-04-11T10:49:21.731Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:49:21.903Z"}
+{"level":"info","message":"Fetching blog post with ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:49:22.962Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T10:49:23.013Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (ID: 67f53fa696d4ab0e5eb1259d)","timestamp":"2025-04-11T10:49:23.048Z"}
+{"level":"info","message":"Fetching related posts for blog post ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:49:23.171Z"}
+{"level":"info","message":"Fetched 1 related posts for blog post ID: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T10:49:23.178Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T10:49:26.113Z"}
+{"level":"info","message":"Fetching blog post with slug: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T11:13:20.570Z"}
+{"level":"warn","message":"Blog post with slug 67f53fa696d4ab0e5eb1259d not found","timestamp":"2025-04-11T11:13:20.579Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T11:13:21.051Z"}
+{"level":"info","message":"Fetching blog post with slug: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T11:13:23.572Z"}
+{"level":"warn","message":"Blog post with slug 67f53fa696d4ab0e5eb1259d not found","timestamp":"2025-04-11T11:13:23.576Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T11:13:23.650Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:13:24.172Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:18:33.943Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:20:33.350Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T11:20:35.425Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:20:35.595Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:20:35.616Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:20:35.637Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:22:24.318Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:23:37.794Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:23:37.899Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:23:37.915Z"}
+{"level":"info","message":"Fetching blog post with slug: 67f53fa696d4ab0e5eb1259d","timestamp":"2025-04-11T11:24:30.587Z"}
+{"level":"warn","message":"Blog post with slug 67f53fa696d4ab0e5eb1259d not found","timestamp":"2025-04-11T11:24:30.629Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T11:24:30.757Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T11:24:32.290Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-11T11:24:32.297Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:24:48.159Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:24:48.179Z"}
+{"level":"info","message":"Fetching blog post with slug: undefined","timestamp":"2025-04-11T11:24:49.916Z"}
+{"level":"warn","message":"Blog post with slug undefined not found","timestamp":"2025-04-11T11:24:49.928Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:24:57.062Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:24:57.073Z"}
+{"level":"info","message":"Fetching blog post with slug: undefined","timestamp":"2025-04-11T11:25:01.331Z"}
+{"level":"warn","message":"Blog post with slug undefined not found","timestamp":"2025-04-11T11:25:01.333Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:36:23.494Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:36:23.537Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T11:36:23.599Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:36:59.076Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:39:27.496Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:39:27.545Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T11:39:27.575Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:40:51.548Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:40:51.603Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T11:40:51.625Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:41:17.191Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:41:17.237Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T11:41:17.262Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:43:12.567Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:43:12.667Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-11T11:43:12.733Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T11:45:48.018Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T11:45:48.065Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-11T11:45:48.084Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T11:45:48.097Z"}
+{"level":"info","message":"Blog posts seeded successfully","timestamp":"2025-04-11T11:45:48.148Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:46:55.373Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T11:46:55.629Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:46:55.705Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:46:55.717Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:47:00.326Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:47:00.338Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:47:02.137Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:47:02.142Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:51:26.067Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:51:26.184Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:51:26.199Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T11:57:05.231Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:05.350Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:57:05.384Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T11:57:05.968Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:57:05.986Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T11:57:06.009Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:14.887Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:57:14.926Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:57:15.052Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:57:15.065Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:21.593Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:57:21.609Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:23.734Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:57:23.745Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T11:57:23.841Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T11:57:23.852Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:38.200Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T11:57:38.212Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:38.239Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T11:57:38.253Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:14.603Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:00:14.606Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:00:14.850Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:00:14.859Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T12:00:15.321Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:15.369Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:15.389Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:45.222Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:00:45.225Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:45.249Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:00:45.255Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T12:01:07.419Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:01:07.489Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:01:07.497Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T12:01:14.133Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:01:14.142Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:02:17.005Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:02:17.012Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:02:17.038Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:02:17.046Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:02:34.323Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:02:34.345Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:03:38.131Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:03:38.138Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:03:38.307Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:03:38.355Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:03:40.709Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:03:40.724Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:03:55.663Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:03:55.798Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T12:03:55.887Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:03:55.918Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:03:55.950Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T12:03:59.276Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:03:59.290Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:04:07.183Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:04:07.212Z"}
+{"level":"info","message":"Fetching blog post with slug: choose-right-packaging-business","timestamp":"2025-04-11T12:04:08.913Z"}
+{"level":"info","message":"Fetched blog post: How to Choose the Right Packaging for Your Business (slug: choose-right-packaging-business)","timestamp":"2025-04-11T12:04:08.916Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:04:15.829Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:04:15.851Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:04:17.016Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:04:17.022Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:04:39.253Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:04:39.265Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:04:39.363Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:04:39.384Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:04:41.142Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:04:41.147Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:04:52.273Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:04:52.282Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:04:52.363Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:04:52.383Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:04:53.384Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:04:53.392Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:05:30.539Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:05:30.594Z"}
+{"level":"info","message":"Fetching blog post with slug: custom-packaging-brand-recognition","timestamp":"2025-04-11T12:05:32.075Z"}
+{"level":"info","message":"Fetched blog post: 5 Ways Custom Packaging Enhances Brand Recognition (slug: custom-packaging-brand-recognition)","timestamp":"2025-04-11T12:05:32.080Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:05:35.760Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:05:35.777Z"}
+{"level":"info","message":"Fetching blog post with slug: choose-right-packaging-business","timestamp":"2025-04-11T12:05:36.682Z"}
+{"level":"info","message":"Fetched blog post: How to Choose the Right Packaging for Your Business (slug: choose-right-packaging-business)","timestamp":"2025-04-11T12:05:36.693Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:05:38.513Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:05:38.537Z"}
+{"level":"info","message":"Fetching blog post with slug: rise-non-woven-bags-retail","timestamp":"2025-04-11T12:05:39.656Z"}
+{"level":"info","message":"Fetched blog post: The Rise of Non-Woven Bags in Retail (slug: rise-non-woven-bags-retail)","timestamp":"2025-04-11T12:05:39.664Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:05:41.330Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:05:41.343Z"}
+{"level":"info","message":"Fetching blog post with slug: packaging-regulations-international-markets","timestamp":"2025-04-11T12:05:42.413Z"}
+{"level":"info","message":"Fetched blog post: Navigating Packaging Regulations for International Markets (slug: packaging-regulations-international-markets)","timestamp":"2025-04-11T12:05:42.421Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:05:44.482Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:05:44.493Z"}
+{"level":"info","message":"Deleting blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:06:06.492Z"}
+{"level":"error","message":"Error deleting blog post with slug environmental-impact-sustainable-packaging:","timestamp":"2025-04-11T12:06:06.495Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:06:45.678Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:06:45.692Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:10:50.325Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:10:50.329Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T12:11:45.054Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T12:11:45.110Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-11T12:11:45.132Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T12:11:45.148Z"}
+{"level":"info","message":"Blog posts seeded successfully","timestamp":"2025-04-11T12:11:45.201Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T12:12:11.319Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:12:11.403Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T12:12:11.649Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T12:12:19.410Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:12:19.549Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:12:19.570Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:12:22.358Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:12:22.398Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:12:24.024Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:12:24.048Z"}
+{"level":"info","message":"Updating blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T12:12:28.967Z"}
+{"level":"info","message":"Updated blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T12:12:29.105Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:12:29.274Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:12:29.385Z"}
+{"level":"info","message":"Deleting blog post with slug: packaging-regulations-international-markets","timestamp":"2025-04-11T12:12:33.858Z"}
+{"level":"error","message":"Error deleting blog post with slug packaging-regulations-international-markets:","timestamp":"2025-04-11T12:12:33.864Z"}
+{"level":"info","message":"Login attempt for email: rolandortiz281995@gmail.com","timestamp":"2025-04-11T12:42:34.531Z"}
+{"level":"info","message":"User logged in: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T12:42:34.666Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:42:37.113Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:42:37.134Z"}
+{"level":"info","message":"Deleting blog post with slug: packaging-regulations-international-markets","timestamp":"2025-04-11T12:42:41.635Z"}
+{"level":"error","message":"Error deleting blog post with slug packaging-regulations-international-markets: undefined","timestamp":"2025-04-11T12:42:41.779Z"}
+{"level":"info","message":"Fetching current user: rolandortiz281995@gmail.com (ID: 67f5894e8844bee7622a4e7b)","timestamp":"2025-04-11T12:57:37.928Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:57:38.015Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T12:57:38.038Z"}
+{"level":"info","message":"Deleting blog post with slug: packaging-regulations-international-markets","timestamp":"2025-04-11T12:57:47.596Z"}
+{"level":"info","message":"Images for blog post: [{\"url\":\"https://images.unsplash.com/photo-1555252322-ec8b2b2b8456?auto=format&fit=crop&w=800&q=80\",\"altText\":\"Global packaging compliance\",\"_id\":\"67f90701dab08e3c256bb09b\"}]","timestamp":"2025-04-11T12:57:47.599Z"}
+{"level":"error","message":"Failed to delete image from Cloudinary for URL https://images.unsplash.com/photo-1555252322-ec8b2b2b8456?auto=format&fit=crop&w=800&q=80: \"Must supply api_key\"","timestamp":"2025-04-11T12:57:47.604Z"}
+{"level":"info","message":"Deleted blog post with slug: packaging-regulations-international-markets","timestamp":"2025-04-11T12:57:47.629Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T12:59:32.912Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T12:59:32.967Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T12:59:32.975Z"}
+{"level":"info","message":"Creating blog post with slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:18:27.412Z"}
+{"level":"error","message":"Error creating blog post:","timestamp":"2025-04-11T13:18:27.419Z"}
+{"level":"info","message":"Creating blog post with slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:21:37.176Z"}
+{"level":"info","message":"Request body: {\"title\":\"Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers\",\"titleTag\":\"Eco-Friendly Wholesale Packaging Benefits for Retailers\",\"slug\":\"wholesale-eco-friendly-packaging-benefits\",\"metaDescription\":\"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\"content\":\"<h2>Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers</h2><p>In today’s retail landscape, brands are increasingly shifting toward eco-conscious practices to appeal to sustainability-minded consumers. One powerful way to do this is by adopting wholesale eco-friendly packaging. This strategic move not only supports the planet but also enhances brand reputation and customer loyalty.</p><p><br></p><h3>Why Go Green?</h3><p>Eco-friendly packaging reduces environmental impact and signals to your customers that your brand is committed to responsible business practices. Whether it's <strong>customized eco-friendly bags</strong> or <strong>recyclable retail packaging</strong>, sustainable packaging solutions speak volumes about your brand values.</p><p><br></p><h3>Cost-Effective Bulk Purchasing</h3><p>Bulk purchasing of sustainable materials allows businesses to cut costs. Partnering with suppliers like Bag Story LLC enables access to <em>premium non-woven bags</em> and other green packaging at wholesale prices. This reduces per-unit cost without compromising quality.</p><p><br></p><h3>Custom Designs That Align With Your Brand</h3><p>Custom eco-friendly packaging offers an opportunity to reinforce your brand’s identity. Whether it’s through color, size, or logo placement, aligning your packaging design with your sustainability goals enhances consumer trust and retention.</p><p><br></p><h3>Challenge: Balancing Sustainability with Affordability</h3><p>Retailers often struggle to find packaging solutions that are both eco-conscious and budget-friendly. However, companies like Bag Story LLC specialize in providing <strong>biodegradable wholesale solutions</strong> that meet both needs.</p><p><br></p><h3>Success Story: A Boutique Retailer’s Transformation</h3><p>One of our clients, a boutique fashion retailer, faced declining engagement despite offering quality products. After switching to custom eco-friendly bags designed by Bag Story LLC, they experienced a <strong>25% increase in customer engagement</strong> and positive social media feedback.</p><p><br></p><h3>Helping You Achieve Your Goals</h3><p>Bag Story LLC is dedicated to <strong>helping retailers and distributors achieve their sustainability targets</strong>. From product sourcing to custom design, our solutions are designed to support your growth while making a positive environmental impact.</p><p><br></p><h3>Call to Action</h3><p><strong>Collaborate with Bag Story LLC</strong> for high-quality, sustainable packaging solutions. <a href=\\\"#\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\">Contact us today</a> for a free consultation and see how we can help you reduce costs while building a greener brand.</p>\",\"excerpt\":\"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\"categories\":\"[\\\"Sustainability\\\",\\\"Packaging\\\"]\",\"tags\":\"[\\\"eco-friendly\\\",\\\"wholesale packaging\\\",\\\"sustainable bags\\\",\\\"custom designs\\\"]\",\"keywords\":\"[\\\"wholesale eco-friendly packaging\\\",\\\"customized eco-friendly bags\\\",\\\"recyclable retail packaging\\\"]\",\"author\":\"Roland Ortiz\",\"date\":\"2025-04-11\",\"readTime\":\"6\",\"published\":\"true\",\"altText_ChatGPT Image Apr 11, 2025, 08_18_03 PM.png\":\"\"}","timestamp":"2025-04-11T13:21:37.184Z"}
+{"level":"error","message":"Error creating blog post: \"Must supply api_key\"","stack":"No stack trace available","timestamp":"2025-04-11T13:21:37.214Z"}
+{"level":"info","message":"Creating blog post with slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:26:05.491Z"}
+{"level":"info","message":"Request body: {\"title\":\"Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers\",\"titleTag\":\"Eco-Friendly Wholesale Packaging Benefits for Retailers\",\"slug\":\"wholesale-eco-friendly-packaging-benefits\",\"metaDescription\":\"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\"content\":\"<h2>Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers</h2><p>In today’s retail landscape, brands are increasingly shifting toward eco-conscious practices to appeal to sustainability-minded consumers. One powerful way to do this is by adopting wholesale eco-friendly packaging. This strategic move not only supports the planet but also enhances brand reputation and customer loyalty.</p><p><br></p><h3>Why Go Green?</h3><p>Eco-friendly packaging reduces environmental impact and signals to your customers that your brand is committed to responsible business practices. Whether it's <strong>customized eco-friendly bags</strong> or <strong>recyclable retail packaging</strong>, sustainable packaging solutions speak volumes about your brand values.</p><p><br></p><h3>Cost-Effective Bulk Purchasing</h3><p>Bulk purchasing of sustainable materials allows businesses to cut costs. Partnering with suppliers like Bag Story LLC enables access to <em>premium non-woven bags</em> and other green packaging at wholesale prices. This reduces per-unit cost without compromising quality.</p><p><br></p><h3>Custom Designs That Align With Your Brand</h3><p>Custom eco-friendly packaging offers an opportunity to reinforce your brand’s identity. Whether it’s through color, size, or logo placement, aligning your packaging design with your sustainability goals enhances consumer trust and retention.</p><p><br></p><h3>Challenge: Balancing Sustainability with Affordability</h3><p>Retailers often struggle to find packaging solutions that are both eco-conscious and budget-friendly. However, companies like Bag Story LLC specialize in providing <strong>biodegradable wholesale solutions</strong> that meet both needs.</p><p><br></p><h3>Success Story: A Boutique Retailer’s Transformation</h3><p>One of our clients, a boutique fashion retailer, faced declining engagement despite offering quality products. After switching to custom eco-friendly bags designed by Bag Story LLC, they experienced a <strong>25% increase in customer engagement</strong> and positive social media feedback.</p><p><br></p><h3>Helping You Achieve Your Goals</h3><p>Bag Story LLC is dedicated to <strong>helping retailers and distributors achieve their sustainability targets</strong>. From product sourcing to custom design, our solutions are designed to support your growth while making a positive environmental impact.</p><p><br></p><h3>Call to Action</h3><p><strong>Collaborate with Bag Story LLC</strong> for high-quality, sustainable packaging solutions. <a href=\\\"#\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\">Contact us today</a> for a free consultation and see how we can help you reduce costs while building a greener brand.</p>\",\"excerpt\":\"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\"categories\":\"[\\\"Sustainability\\\",\\\"Packaging\\\"]\",\"tags\":\"[\\\"eco-friendly\\\",\\\"wholesale packaging\\\",\\\"sustainable bags\\\",\\\"custom designs\\\"]\",\"keywords\":\"[\\\"wholesale eco-friendly packaging\\\",\\\"customized eco-friendly bags\\\",\\\"recyclable retail packaging\\\"]\",\"author\":\"Roland Ortiz\",\"date\":\"2025-04-11\",\"readTime\":\"6\",\"published\":\"true\",\"altText_ChatGPT Image Apr 11, 2025, 08_18_03 PM.png\":\"\"}","timestamp":"2025-04-11T13:26:05.497Z"}
+{"level":"info","message":"Creating blog post with slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:31:58.815Z"}
+{"level":"info","message":"Request body: {\n  \"title\": \"Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers\",\n  \"titleTag\": \"Eco-Friendly Wholesale Packaging Benefits for Retailers\",\n  \"slug\": \"wholesale-eco-friendly-packaging-benefits\",\n  \"metaDescription\": \"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\n  \"content\": \"<h2>Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers</h2><p>In today’s retail landscape, brands are increasingly shifting toward eco-conscious practices to appeal to sustainability-minded consumers. One powerful way to do this is by adopting wholesale eco-friendly packaging. This strategic move not only supports the planet but also enhances brand reputation and customer loyalty.</p><p><br></p><h3>Why Go Green?</h3><p>Eco-friendly packaging reduces environmental impact and signals to your customers that your brand is committed to responsible business practices. Whether it's <strong>customized eco-friendly bags</strong> or <strong>recyclable retail packaging</strong>, sustainable packaging solutions speak volumes about your brand values.</p><p><br></p><h3>Cost-Effective Bulk Purchasing</h3><p>Bulk purchasing of sustainable materials allows businesses to cut costs. Partnering with suppliers like Bag Story LLC enables access to <em>premium non-woven bags</em> and other green packaging at wholesale prices. This reduces per-unit cost without compromising quality.</p><p><br></p><h3>Custom Designs That Align With Your Brand</h3><p>Custom eco-friendly packaging offers an opportunity to reinforce your brand’s identity. Whether it’s through color, size, or logo placement, aligning your packaging design with your sustainability goals enhances consumer trust and retention.</p><p><br></p><h3>Challenge: Balancing Sustainability with Affordability</h3><p>Retailers often struggle to find packaging solutions that are both eco-conscious and budget-friendly. However, companies like Bag Story LLC specialize in providing <strong>biodegradable wholesale solutions</strong> that meet both needs.</p><p><br></p><h3>Success Story: A Boutique Retailer’s Transformation</h3><p>One of our clients, a boutique fashion retailer, faced declining engagement despite offering quality products. After switching to custom eco-friendly bags designed by Bag Story LLC, they experienced a <strong>25% increase in customer engagement</strong> and positive social media feedback.</p><p><br></p><h3>Helping You Achieve Your Goals</h3><p>Bag Story LLC is dedicated to <strong>helping retailers and distributors achieve their sustainability targets</strong>. From product sourcing to custom design, our solutions are designed to support your growth while making a positive environmental impact.</p><p><br></p><h3>Call to Action</h3><p><strong>Collaborate with Bag Story LLC</strong> for high-quality, sustainable packaging solutions. <a href=\\\"#\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\">Contact us today</a> for a free consultation and see how we can help you reduce costs while building a greener brand.</p>\",\n  \"excerpt\": \"Learn how wholesale eco-friendly packaging helps retailers cut costs, boost brand loyalty, and meet sustainability goals through custom designs.\",\n  \"categories\": \"[\\\"Sustainability\\\",\\\"Packaging\\\"]\",\n  \"tags\": \"[\\\"eco-friendly\\\",\\\"wholesale packaging\\\",\\\"sustainable bags\\\",\\\"custom designs\\\"]\",\n  \"keywords\": \"[\\\"wholesale eco-friendly packaging\\\",\\\"customized eco-friendly bags\\\",\\\"recyclable retail packaging\\\"]\",\n  \"author\": \"Roland Ortiz\",\n  \"date\": \"2025-04-11\",\n  \"readTime\": \"6\",\n  \"published\": \"true\",\n  \"altText_ChatGPT Image Apr 11, 2025, 08_18_03 PM.png\": \"\"\n}","timestamp":"2025-04-11T13:31:58.829Z"}
+{"level":"info","message":"Created blog post: Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers (slug: wholesale-eco-friendly-packaging-benefits)","timestamp":"2025-04-11T13:32:09.707Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T13:32:09.948Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:32:09.966Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:32:18.423Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:32:18.439Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:32:38.785Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T13:32:38.790Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:32:38.810Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:32:38.817Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:32:41.484Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:32:41.493Z"}
+{"level":"info","message":"Fetching blog post with slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:32:43.536Z"}
+{"level":"info","message":"Fetched blog post: Why Wholesale Eco-Friendly Packaging is a Game Changer for Retailers (slug: wholesale-eco-friendly-packaging-benefits)","timestamp":"2025-04-11T13:32:43.540Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:32:43.559Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: wholesale-eco-friendly-packaging-benefits","timestamp":"2025-04-11T13:32:43.564Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T13:32:59.406Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T13:32:59.457Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:32:59.465Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T13:36:07.262Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:36:07.566Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:36:07.575Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T13:36:14.764Z"}
+{"level":"info","message":"Fetching current user: mason.holt2857@gmail.com (ID: 67f8dcad419c40b180ab2ad5)","timestamp":"2025-04-11T13:36:14.803Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:36:14.834Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:36:14.876Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:34.487Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T13:40:34.495Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:34.544Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:34.553Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:40:40.951Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:40:40.967Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:47.514Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T13:40:47.532Z"}
+{"level":"info","message":"Fetching blog posts with query: {}","timestamp":"2025-04-11T13:40:50.467Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T13:40:50.476Z"}
+{"level":"info","message":"Deleting blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:57.813Z"}
+{"level":"info","message":"Images for blog post: [{\"url\":\"https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80\",\"altText\":\"Sustainable packaging materials\",\"_id\":\"67f90701dab08e3c256bb093\"}]","timestamp":"2025-04-11T13:40:57.815Z"}
+{"level":"info","message":"Deleted image from Cloudinary: images","timestamp":"2025-04-11T13:40:58.986Z"}
+{"level":"info","message":"Deleted blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:58.989Z"}
+{"level":"info","message":"Deleting blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:59.009Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T13:41:06.535Z"}

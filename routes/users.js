@@ -27,6 +27,15 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', [
   body('name').trim().notEmpty().withMessage('Name is required'),
   body('email').isEmail().withMessage('Invalid email'),
+  body('phone')
+    .optional({ checkFalsy: true }) // Allow empty strings, null, undefined
+    .matches(/^\+?\d{10,15}$/) // Custom regex: optional +, 10-15 digits
+    .withMessage('Invalid phone number'),
+  body('address').optional().trim(),
+  body('city').optional().trim(),
+  body('state').optional().trim(),
+  body('zipCode').optional().trim(),
+  body('country').optional().trim(),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -36,24 +45,37 @@ router.put('/:id', [
 
   try {
     logger.info(`Updating user with ID: ${req.params.id}`);
+    const { email, ...updateData } = req.body;
+
+    // Log the incoming data for debugging
+    logger.debug(`Update data: ${JSON.stringify(req.body)}`);
+
+    // Check if email is already taken by another user
+    if (email) {
+      const existingUser = await User.findOne({ email, _id: { $ne: req.params.id } });
+      if (existingUser) {
+        logger.warn(`Email already in use: ${email}`);
+        return res.status(400).json({ error: 'Email already in use' });
+      }
+    }
+
+    // Ensure only authorized user can update their profile
+    if (req.user._id.toString() !== req.params.id) {
+      logger.warn(`Unauthorized update attempt by user ${req.user._id} on user ${req.params.id}`);
+      return res.status(403).json({ error: 'Unauthorized' });
+    }
+
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
-      {
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone,
-        address: req.body.address,
-        city: req.body.city,
-        state: req.body.state,
-        zipCode: req.body.zipCode,
-        country: req.body.country,
-      },
-      { new: true }
+      { ...updateData, email },
+      { new: true, runValidators: true }
     );
+
     if (!updatedUser) {
       logger.warn(`User with ID ${req.params.id} not found`);
       return res.status(404).json({ error: 'User not found' });
     }
+
     logger.info(`Updated user: ${updatedUser.email} (ID: ${updatedUser._id})`);
     res.json(updatedUser);
   } catch (err) {

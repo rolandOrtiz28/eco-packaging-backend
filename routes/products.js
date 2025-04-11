@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-const Quote = require('../models/Quote'); // Import Quote model
+const Quote = require('../models/Quote');
 const logger = require('../config/logger');
 const multer = require('multer');
 const { cloudinary, storage } = require('../config/cloudinary');
 const { body, validationResult } = require('express-validator');
-const sendEmail = require('../utils/sendEmail'); // Import your sendEmail utility
+const sendEmail = require('../utils/sendEmail');
 
 // Multer setup for Cloudinary
 const upload = multer({ storage });
@@ -113,6 +113,7 @@ router.post(
     body('moq').isInt({ min: 1 }).withMessage('MOQ must be a positive integer'),
     body('pcsPerCase').isInt({ min: 1 }).withMessage('Pieces per case must be a positive integer'),
     body('category').notEmpty().withMessage('Category is required'),
+    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'), // Validate inStock
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -121,7 +122,7 @@ router.post(
     }
 
     try {
-      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, details } = req.body;
+      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, details } = req.body;
 
       const imageUrls = req.files.map(file => file.path);
 
@@ -146,6 +147,7 @@ router.post(
         category,
         tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
         featured: featured === 'true',
+        inStock: inStock === 'true', // Set inStock field
         details: parsedDetails,
       });
 
@@ -177,6 +179,7 @@ router.put(
     body('moq').optional().isInt({ min: 1 }).withMessage('MOQ must be a positive integer'),
     body('pcsPerCase').optional().isInt({ min: 1 }).withMessage('Pieces per case must be a positive integer'),
     body('category').optional().notEmpty().withMessage('Category cannot be empty'),
+    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'), // Validate inStock
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -191,7 +194,7 @@ router.put(
         return res.status(404).json({ error: 'Product not found' });
       }
 
-      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, details, existingImages, mainImageIndex } = req.body;
+      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, details, existingImages, mainImageIndex } = req.body;
 
       if (name) product.name = name;
       if (description) product.description = description;
@@ -202,6 +205,7 @@ router.put(
       if (category) product.category = category;
       if (tags) product.tags = tags.split(',').map(tag => tag.trim());
       if (featured !== undefined) product.featured = featured === 'true';
+      if (inStock !== undefined) product.inStock = inStock === 'true'; // Update inStock field
       if (details) {
         const parsedDetails = JSON.parse(details);
         parsedDetails.pricing = parsedDetails.pricing.map(tier => {

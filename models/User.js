@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
   zipCode: { type: String, default: '' },
   country: { type: String, default: 'US' },
   password: { type: String },
-  orderId: { type: mongoose.Schema.Types.ObjectId, ref: 'Order', default: null },
 }, { timestamps: true });
 
 // Method to compare passwords

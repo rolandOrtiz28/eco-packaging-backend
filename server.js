@@ -13,6 +13,7 @@ const mongoSanitize = require('mongo-sanitize');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const { Server } = require('socket.io');
 const isProduction = process.env.NODE_ENV === "production";
 const secret = process.env.SESSION_SECRET;
@@ -187,6 +188,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cookieParser());
+
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contact', require('./routes/contact'));
@@ -196,7 +199,7 @@ app.use('/api/user', require('./routes/users'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/leads', require('./routes/leads'));
 app.use('/api/chat', require('./routes/chat'));
-app.use('/api/orders', require('./routes/orders'));
+app.use('/api/order', require('./routes/orders'));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));
@@ -282,18 +285,6 @@ io.on('connection', (socket) => {
         !chat.messages.some(m => m.text === 'A human agent has joined the chat!')
       );
 
-      const adminRoom = io.sockets.adapter.rooms.get('admins');
-      const adminCount = adminRoom ? adminRoom.size : 0;
-      console.log('Server: Number of admins in room:', adminCount);
-
-      if (adminCount === 0) {
-        console.log('Server: No admins available, notifying user:', data.userId);
-        io.to(data.userId).emit('no-admins', {
-          message: 'Sorry, it looks like our team is currently unavailable. Please provide your email, and we’ll follow up with you soon!',
-        });
-        return;
-      }
-
       console.log('Server: Emitting chat-notification to admins');
       io.to('admins').emit('chat-notification', {
         userId: data.userId,
@@ -311,6 +302,42 @@ io.on('connection', (socket) => {
           email: data.email,
           message: data.message,
         });
+
+        // Set a 1-minute timeout for admin response
+        setTimeout(async () => {
+          const updatedChat = await Chat.findOne({ userId: data.userId });
+          if (updatedChat && !updatedChat.messages.some(msg => msg.text === 'A human agent has joined the chat!')) {
+            console.log('Server: No admin responded within 1 minute for userId:', data.userId);
+            io.to(data.userId).emit('no-admins', {
+              message: 'Sorry, our team is currently unavailable. We’ll follow up with you via email soon!',
+            });
+
+            // Save lead and notify admin
+            try {
+              const lead = await Lead.findOne({ email: data.email });
+              if (!lead) {
+                const newLead = new Lead({
+                  name: data.name,
+                  email: data.email,
+                  source: 'Chat Widget',
+                  date: new Date().toISOString().split('T')[0],
+                  message: 'No admin responded to human request',
+                });
+                await newLead.save();
+                console.log(`Server: New lead created for ${data.email}`);
+              }
+
+              await sendEmail(
+                process.env.ADMIN_EMAIL,
+                'Missed Chat Request',
+                `User ${data.name} (${data.email}) requested a human agent, but no admin responded within 1 minute. Please follow up with them soon.`
+              );
+              console.log('Server: Admin notified of missed chat request');
+            } catch (err) {
+              console.error('Server: Error saving lead or notifying admin:', err);
+            }
+          }
+        }, 60000); // 1 minute
       }
     }
   });
@@ -422,14 +449,8 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('Server: A client disconnected:', socket.id);
-    if (socket.rooms.has('admins')) {
-      io.to('waiting-users').emit('no-admins', {
-        message: 'Sorry, it looks like our team is currently unavailable. Please provide your email, and we’ll follow up with you soon!',
-      });
-    }
   });
 });
-
 // Export activeChats for use in routes
 app.set('activeChats', activeChats);
 

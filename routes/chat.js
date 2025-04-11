@@ -314,8 +314,8 @@ router.post('/', [
     });
 
     // Check if an admin is connected to this chat session
-    const activeChats = req.app.get('io').of('/').adapter.rooms; // Access active chats (Note: This requires adjustment based on how activeChats is stored)
-    const isAdminConnected = req.app.get('activeChats')?.has(chat.userId); // Check if an admin is connected
+    const activeChats = req.app.get('activeChats');
+    const isAdminConnected = activeChats?.has(chat.userId);
 
     // Check if user wants to talk to a human
     const wantsHuman = message.toLowerCase().includes('talk to human');
@@ -336,7 +336,6 @@ router.post('/', [
         chat.userId = lead._id.toString();
       }
 
-      // Send email to admin if this is a new request
       if (!chat.messages.some(msg => msg.text.includes('Your request has been sent to a human agent'))) {
         try {
           await sendEmail(
@@ -357,7 +356,6 @@ router.post('/', [
       });
       await chat.save();
 
-      // Emit the human request message to the client
       req.app.get('io').to(chat.userId).emit('message', {
         userId: chat.userId,
         text: 'Your request has been sent to a human agent. Please wait for a response.',
@@ -366,16 +364,6 @@ router.post('/', [
         timestamp: new Date().toISOString(),
       });
 
-      // Update the lead status to "Contacted" if an admin responds
-      if (req.user && req.user.role === 'admin') {
-        const lead = await Lead.findOne({ email, source: 'Chat Widget' });
-        if (lead) {
-          lead.status = 'Contacted';
-          await lead.save();
-          console.log(`Lead status updated to Contacted for email: ${email}`);
-        }
-      }
-
       return res.json({
         message: 'Your request has been sent to a human agent. Please wait for a response.',
         awaitingHuman: true,
@@ -383,58 +371,27 @@ router.post('/', [
       });
     }
 
-    // Handle follow-up email request
-    if (message.toLowerCase().includes('follow-up email request')) {
-      try {
-        await sendEmail(
-          email,
-          'Follow-Up: Eco Packaging Support',
-          `Hi ${name},\n\nThank you for reaching out! We’re sorry we couldn’t connect you with a human agent. We’ll follow up with you soon.\n\nBest,\nEco Packaging Team`
-        );
-        console.log('Follow-up email sent successfully to:', email);
-
-        // Send email to the admin to notify them of the inquiry
-        await sendEmail(
-          process.env.ADMIN_EMAIL,
-          'Inquiry: No Human Agent Available',
-          `A user (${name}, ${email}) requested a human agent, but none were available. They have submitted a follow-up email request. Please follow up with them soon.`
-        );
-        console.log('Notification email sent to admin:', process.env.ADMIN_EMAIL);
-
-        // Create or update a lead for the follow-up email request
-        const lead = await Lead.findOne({ email });
-        if (!lead) {
-          const newLead = new Lead({
-            name,
-            email,
-            source: 'Chat Widget',
-            date: new Date().toISOString().split('T')[0],
-            message: 'Follow-up email request after admin unavailability',
-          });
-          await newLead.save();
-          chat.userId = newLead._id.toString();
-          console.log(`New lead created for follow-up email request: ${email}`);
-        } else {
-          chat.userId = lead._id.toString();
-        }
-      } catch (emailErr) {
-        console.error('Failed to send follow-up email to user or admin:', emailErr);
-        await sendEmail(
-          process.env.ADMIN_EMAIL,
-          'Error: Follow-Up Email Failed',
-          `Failed to send follow-up email to ${email} or admin. Error: ${emailErr.message}`
-        );
-      }
-
-      await chat.save();
-      return res.json({ message: 'Follow-up email sent successfully' });
-    }
-
-    // If an admin is connected, do not generate an AI response
+    // If an admin is connected, skip AI response and do not emit duplicate message
     if (isAdminConnected) {
-      console.log('Admin is connected, skipping AI response for user message:', message);
+      console.log('Admin is connected, skipping AI response and message emission for user message:', message);
       await chat.save();
       return res.json({ message: 'Message received, admin is handling the chat.', awaitingHuman: false, userId: chat.userId });
+    }
+
+    // Save the chat as a lead if it's a new chat
+    const lead = await Lead.findOne({ email });
+    if (!lead) {
+      const newLead = new Lead({
+        name,
+        email,
+        source: 'Chat Widget',
+        date: new Date().toISOString().split('T')[0],
+        message,
+      });
+      await newLead.save();
+      chat.userId = newLead._id.toString();
+    } else {
+      chat.userId = lead._id.toString();
     }
 
     // Integrate with OpenAI for basic inquiries
@@ -471,7 +428,6 @@ Provide detailed and accurate responses based on this information. If the user a
     }
     console.log('OpenAI response:', aiResponse);
 
-    // Add the AI response to the chat session
     chat.messages.push({
       text: aiResponse,
       sender: 'bot',
@@ -479,25 +435,8 @@ Provide detailed and accurate responses based on this information. If the user a
       timestamp: new Date(),
     });
 
-    // Save the chat as a lead if it's a new chat
-    const lead = await Lead.findOne({ email });
-    if (!lead) {
-      const newLead = new Lead({
-        name,
-        email,
-        source: 'Chat Widget',
-        date: new Date().toISOString().split('T')[0],
-        message: `${message} | AI Response: ${aiResponse}`,
-      });
-      await newLead.save();
-      chat.userId = newLead._id.toString();
-    } else {
-      chat.userId = lead._id.toString();
-    }
-
     await chat.save();
 
-    // Emit the AI response to the client and admin via Socket.IO
     req.app.get('io').to(chat.userId).emit('message', {
       userId: chat.userId,
       text: aiResponse,
@@ -514,7 +453,6 @@ Provide detailed and accurate responses based on this information. If the user a
       timestamp: new Date().toISOString(),
     });
 
-    // Emit a 'new-chat' event to notify admins of the new chat
     req.app.get('io').to('admins').emit('new-chat', {
       userId: chat.userId,
       name: chat.name,
