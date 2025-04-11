@@ -188,17 +188,24 @@ app.use((req, res, next) => {
 });
 
 // API Routes
-app.use("/api", require("./routes/auth"));
-app.use("/api", require("./routes/products"));
-app.use("/api", require("./routes/blogPosts"));
-app.use("/api", require("./routes/users"));
-app.use("/api", require("./routes/analytics"));
-app.use("/api", require("./routes/leads"));
-app.use("/api", require("./routes/chat"));
-app.use("/api/order", require("./routes/orders"));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/products', require('./routes/products'));
+app.use('/api/blog-posts', require('./routes/blogPosts'));
+app.use('/api/user', require('./routes/users'));
+app.use('/api/analytics', require('./routes/analytics'));
+app.use('/api/leads', require('./routes/leads'));
+app.use('/api/chat', require('./routes/chat'));
+app.use('/api/orders', require('./routes/orders'));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
-app.use('/api', require('./routes/subscribers'));
+app.use('/api/subscribers', require('./routes/subscribers'));
+
+app.use((req, res, next) => {
+  console.warn('⚠️  Unmatched route:', req.method, req.originalUrl);
+  res.status(404).json({ message: 'Route not found' });
+});
+
 
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');

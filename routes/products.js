@@ -21,7 +21,7 @@ const isAdmin = (req, res, next) => {
 };
 
 // GET /products - Fetch all products
-router.get('/products', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const products = await Product.find();
     logger.info(`Fetched ${products.length} products from database`);
@@ -102,7 +102,7 @@ router.get('/distributor-products', async (req, res) => {
 
 // POST /products - Create a new product (Admin only)
 router.post(
-  '/products',
+  '/',
   isAdmin,
   upload.array('images', 5),
   [
@@ -166,7 +166,7 @@ router.post(
 
 // PUT /products/:id - Update a product (Admin only)
 router.put(
-  '/products/:id',
+  '/:id',
   isAdmin,
   upload.array('images', 5),
   [
@@ -247,7 +247,7 @@ router.put(
 
 // DELETE /products/:id - Delete a product (Admin only)
 router.delete(
-  '/products/:id',
+  '/:id',
   isAdmin,
   async (req, res) => {
     try {
@@ -429,6 +429,15 @@ router.post(
       // Update quote status to 'responded'
       quote.status = 'responded';
       await quote.save();
+
+      if (req.user && req.user.role === 'admin') {
+        const lead = await Lead.findOne({ email, source: 'Chat Widget' });
+        if (lead) {
+          lead.status = 'Contacted';
+          await lead.save();
+          console.log(`Lead status updated to Contacted for email: ${email}`);
+        }
+      }
 
       logger.info(`Sent reply email for quote with ID ${id}`);
       const transformedQuote = {

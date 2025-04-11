@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
 const Settings = require('../models/Settings');
+const Lead = require('../models/Lead'); // Add Lead model
+const User = require('../models/User'); // Add User model
 const { body, validationResult } = require('express-validator');
 const paypal = require('@paypal/checkout-server-sdk');
-const logger = require('../config/logger'); // Ensure logger is imported
+const logger = require('../config/logger');
 
 // PayPal Configuration
 const environment = process.env.NODE_ENV === 'production'
@@ -24,7 +26,7 @@ const isAdmin = (req, res, next) => {
 // GET /api/orders - Fetch all orders (Admin only)
 router.get('/', isAdmin, async (req, res) => {
   try {
-    const orders = await Order.find().populate('userId', 'email'); // Populate user email for better display
+    const orders = await Order.find().populate('userId', 'email');
     const transformedOrders = orders.map(order => ({
       ...order.toObject(),
       id: order._id.toString(),
@@ -164,6 +166,13 @@ router.post('/complete', [
     console.log('Completing order:', req.body);
     const { userId, paypalOrderId, paymentId, items, total, discount } = req.body;
 
+    // Fetch the user to get their email
+    const user = await User.findById(userId);
+    if (!user) {
+      console.error('User not found:', userId);
+      return res.status(404).json({ error: 'User not found' });
+    }
+
     // Fetch tax and delivery settings directly from the database
     const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
     const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
@@ -212,6 +221,15 @@ router.post('/complete', [
     await newOrder.save();
     console.log(`Order saved: ${orderId}`);
 
+    // Update the lead with the orderId if the user was a lead
+    const lead = await Lead.findOne({ email: user.email });
+    if (lead) {
+      lead.orderId = newOrder._id;
+      lead.status = 'Converted';
+      await lead.save();
+      console.log(`Lead updated with orderId: ${newOrder._id}`);
+    }
+
     res.status(201).json({ orderId, paymentId });
   } catch (err) {
     console.error('Error saving order:', err.message, err.stack);
@@ -243,7 +261,7 @@ router.put(
         return res.status(404).json({ error: 'Order not found' });
       }
 
-      order.status = status; // Update the status field, not paymentStatus
+      order.status = status;
       await order.save();
 
       logger.info(`Updated status of order with ID ${id} to ${status}`);

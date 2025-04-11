@@ -279,7 +279,7 @@ const companyData = {
   ]
 };
 
-router.post('/chat', [
+router.post('/', [
   body('name').trim().notEmpty().withMessage('Name is required'),
   body('email').isEmail().withMessage('Invalid email'),
   body('message').trim().notEmpty().withMessage('Message is required'),
@@ -366,6 +366,16 @@ router.post('/chat', [
         timestamp: new Date().toISOString(),
       });
 
+      // Update the lead status to "Contacted" if an admin responds
+      if (req.user && req.user.role === 'admin') {
+        const lead = await Lead.findOne({ email, source: 'Chat Widget' });
+        if (lead) {
+          lead.status = 'Contacted';
+          await lead.save();
+          console.log(`Lead status updated to Contacted for email: ${email}`);
+        }
+      }
+
       return res.json({
         message: 'Your request has been sent to a human agent. Please wait for a response.',
         awaitingHuman: true,
@@ -390,6 +400,23 @@ router.post('/chat', [
           `A user (${name}, ${email}) requested a human agent, but none were available. They have submitted a follow-up email request. Please follow up with them soon.`
         );
         console.log('Notification email sent to admin:', process.env.ADMIN_EMAIL);
+
+        // Create or update a lead for the follow-up email request
+        const lead = await Lead.findOne({ email });
+        if (!lead) {
+          const newLead = new Lead({
+            name,
+            email,
+            source: 'Chat Widget',
+            date: new Date().toISOString().split('T')[0],
+            message: 'Follow-up email request after admin unavailability',
+          });
+          await newLead.save();
+          chat.userId = newLead._id.toString();
+          console.log(`New lead created for follow-up email request: ${email}`);
+        } else {
+          chat.userId = lead._id.toString();
+        }
       } catch (emailErr) {
         console.error('Failed to send follow-up email to user or admin:', emailErr);
         await sendEmail(
@@ -509,7 +536,7 @@ Provide detailed and accurate responses based on this information. If the user a
 });
 
 // Endpoint to retrieve chat history (used by admin)
-router.get('/chat/history', async (req, res) => {
+router.get('/history', async (req, res) => {
   try {
     const { email } = req.query;
     if (!email) {
@@ -535,7 +562,7 @@ router.get('/chat/history', async (req, res) => {
 });
 
 // Endpoint to get all chats (for admin)
-router.get('/chat/all', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
     const chats = await Chat.find({});
     res.json(chats);
@@ -546,7 +573,7 @@ router.get('/chat/all', async (req, res) => {
 });
 
 // Endpoint to update chat session email
-router.put('/chat/update-email', async (req, res) => {
+router.put('/update-email', async (req, res) => {
   try {
     const { oldEmail, newEmail } = req.body;
     if (!oldEmail || !newEmail) {
@@ -574,7 +601,7 @@ router.put('/chat/update-email', async (req, res) => {
   }
 });
 
-router.delete('/chat/clear', async (req, res) => {
+router.delete('/clear', async (req, res) => {
   try {
     await Chat.deleteMany({});
     res.json({ message: 'All chat history cleared successfully' });
@@ -585,7 +612,3 @@ router.delete('/chat/clear', async (req, res) => {
 });
 
 module.exports = router;
-
-
-
-// base

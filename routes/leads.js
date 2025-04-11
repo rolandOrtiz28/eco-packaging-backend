@@ -4,38 +4,16 @@ const Lead = require('../models/Lead');
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 
-// POST /contact - Submit contact form
-router.post('/contact', [
-  body('name').trim().notEmpty().withMessage('Name is required'),
-  body('email').isEmail().withMessage('Invalid email'),
-  body('message').trim().notEmpty().withMessage('Message is required'),
-], async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    console.warn('Validation errors in contact form:', errors.array());
-    return res.status(400).json({ errors: errors.array() });
+// Middleware to check if user is admin (assuming you have this)
+const isAdmin = (req, res, next) => {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Access denied. Admin only.' });
   }
-  try {
-    console.log('Submitting contact form:', req.body);
-    const { name, email, message } = req.body;
-    const lead = new Lead({
-      name,
-      email,
-      source: 'Contact Form',
-      date: new Date().toISOString().split('T')[0],
-      message,
-    });
-    await lead.save();
-    res.status(201).json({ message: 'Contact form submitted' });
-  } catch (err) {
-    console.error('Error submitting contact form:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
+  next();
+};
 
 // GET /leads - Fetch all leads (for admin)
-router.get('/leads', async (req, res) => {
+router.get('/', isAdmin, async (req, res) => {
   try {
     console.log('Fetching all leads');
     const leads = await Lead.find();
@@ -46,7 +24,8 @@ router.get('/leads', async (req, res) => {
   }
 });
 
-router.delete('/leads/clear', async (req, res) => {
+// DELETE /leads/clear - Clear all leads
+router.delete('/clear', isAdmin, async (req, res) => {
   try {
     await Lead.deleteMany({});
     res.json({ message: 'All leads cleared successfully' });
@@ -56,12 +35,41 @@ router.delete('/leads/clear', async (req, res) => {
   }
 });
 
-router.get('/users', async (req, res) => {
+// GET /leads/users - Fetch all users
+router.get('/users', isAdmin, async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
   } catch (err) {
     console.error('Error fetching users:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// PUT /leads/:id/status - Update lead status
+router.put('/:id/status', isAdmin, [
+  body('status').isIn(['New', 'Contacted', 'Qualified', 'Converted']).withMessage('Invalid status'),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const lead = await Lead.findById(id);
+    if (!lead) {
+      return res.status(404).json({ error: 'Lead not found' });
+    }
+
+    lead.status = status;
+    await lead.save();
+
+    res.json(lead);
+  } catch (err) {
+    console.error('Error updating lead status:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });

@@ -5,7 +5,7 @@ const logger = require('../config/logger');
 
 
 // GET /blog-post/:id - Fetch a single blog post
-router.get('/blog-posts', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     logger.info('Fetching all blog posts');
     const blogPosts = await BlogPost.find();
@@ -26,7 +26,7 @@ router.get('/blog-posts', async (req, res) => {
 
 
 
-router.get('/blog-post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     logger.info(`Fetching blog post with ID: ${req.params.id}`);
     const blogPost = await BlogPost.findById(req.params.id);

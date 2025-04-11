@@ -3,9 +3,10 @@ const router = express.Router();
 const User = require('../models/User');
 const Order = require('../models/Order');
 const logger = require('../config/logger');
+const { body, validationResult } = require('express-validator');
 
 // GET /user/:id - Fetch user profile with orders
-router.get('/user/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
       logger.info(`Fetching user with ID: ${req.params.id}`);
       const user = await User.findById(req.params.id);
@@ -22,18 +23,41 @@ router.get('/user/:id', async (req, res) => {
     }
   });
 
-// PUT /user/:id - Update user profile
-router.put('/user/:id', async (req, res) => {
+// PUT /:id - Update user profile
+router.put('/:id', [
+  body('name').trim().notEmpty().withMessage('Name is required'),
+  body('email').isEmail().withMessage('Invalid email'),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    logger.warn('Validation errors in user update:', errors.array().map(e => e.msg));
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
-    console.log(`Updating user with ID: ${req.params.id}`);
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    logger.info(`Updating user with ID: ${req.params.id}`);
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
+        country: req.body.country,
+      },
+      { new: true }
+    );
     if (!updatedUser) {
-      console.warn(`User with ID ${req.params.id} not found`);
+      logger.warn(`User with ID ${req.params.id} not found`);
       return res.status(404).json({ error: 'User not found' });
     }
+    logger.info(`Updated user: ${updatedUser.email} (ID: ${updatedUser._id})`);
     res.json(updatedUser);
   } catch (err) {
-    console.error(`Error updating user with ID ${req.params.id}:`, err);
+    logger.error(`Error updating user with ID ${req.params.id}:`, err);
     res.status(500).json({ error: 'Server error' });
   }
 });
