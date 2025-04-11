@@ -6145,3 +6145,193 @@
 {"level":"info","message":"Deleted blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:58.989Z"}
 {"level":"info","message":"Deleting blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T13:40:59.009Z"}
 {"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T13:41:06.535Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:53:44.988Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-11T13:53:45.178Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T13:53:45.337Z"}
+{"level":"info","message":"Fetched 0 products from database","timestamp":"2025-04-11T13:53:47.241Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T13:53:47.321Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-11T13:53:47.453Z"}
+{"level":"info","message":"Connecting to MongoDB at: mongodb://127.0.0.1:27017/eco-packaging","timestamp":"2025-04-11T13:56:12.124Z"}
+{"level":"info","message":"✅ MongoDB Connected","timestamp":"2025-04-11T13:56:12.174Z"}
+{"level":"info","message":"Database seeded successfully","timestamp":"2025-04-11T13:56:12.261Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T14:00:40.958Z"}
+{"level":"info","message":"Cleared existing products","timestamp":"2025-04-11T14:00:41.136Z"}
+{"level":"info","message":"Inserted 16 products","timestamp":"2025-04-11T14:00:42.038Z"}
+{"level":"info","message":"Login attempt for email: gwapohejunjo@gmail.com","timestamp":"2025-04-11T14:01:14.363Z"}
+{"level":"warn","message":"Login failed for email: gwapohejunjo@gmail.com - Invalid email or password","timestamp":"2025-04-11T14:01:14.437Z"}
+{"level":"info","message":"User registration attempt: user@example.com","timestamp":"2025-04-11T14:01:41.031Z"}
+{"level":"info","message":"User registered and logged in: user@example.com (ID: 67f920c5461de44b31b6c201)","timestamp":"2025-04-11T14:01:41.420Z"}
+{"level":"info","message":"Login attempt for email: user@example.com","timestamp":"2025-04-11T14:01:51.624Z"}
+{"level":"info","message":"User logged in: user@example.com (ID: 67f920c5461de44b31b6c201)","timestamp":"2025-04-11T14:01:51.903Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:01:52.809Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:01:52.956Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-11T14:01:53.094Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T14:06:33.497Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-11T14:06:33.562Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-11T14:06:33.623Z"}
+{"level":"info","message":"Inserted 5 blog posts","timestamp":"2025-04-11T14:06:33.714Z"}
+{"level":"info","message":"User registration attempt: admin@example.com","timestamp":"2025-04-11T14:09:11.235Z"}
+{"level":"info","message":"User registered and logged in: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:09:11.577Z"}
+{"level":"info","message":"Login attempt for email: admin@example.com","timestamp":"2025-04-11T14:09:27.864Z"}
+{"level":"info","message":"User logged in: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:09:28.134Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:09:28.903Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:09:29.058Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:09:29.194Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:12:24.294Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:12:24.433Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:12:24.568Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:12:24.613Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:12:53.697Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f9208972b69337882d4c04)","timestamp":"2025-04-11T14:13:26.294Z"}
+{"level":"info","message":"Updated product: Wine Vest Bag (1/2 Two Bottle Wine Bag) (ID: 67f9208972b69337882d4c04)","timestamp":"2025-04-11T14:13:37.499Z"}
+{"level":"info","message":"Updated product: Small Vest Bag (1/10 Small) (ID: 67f9208972b69337882d4c09)","timestamp":"2025-04-11T14:15:56.705Z"}
+{"level":"info","message":"Updated product: Small Vest Bag (1/10 Small) (ID: 67f9208972b69337882d4c09)","timestamp":"2025-04-11T14:16:06.381Z"}
+{"level":"info","message":"Updated product: Medium Vest Bag (1/8 Medium) (ID: 67f9208972b69337882d4c0e)","timestamp":"2025-04-11T14:17:43.392Z"}
+{"level":"info","message":"Updated product: Medium Vest Bag (1/8 Medium) (ID: 67f9208972b69337882d4c0e)","timestamp":"2025-04-11T14:17:50.525Z"}
+{"level":"info","message":"Updated product: Large Vest Bag (1/6 Medium Duty) (ID: 67f9208972b69337882d4c13)","timestamp":"2025-04-11T14:18:04.681Z"}
+{"level":"info","message":"Updated product: Large+ Vest Bag (1/6 Plus, A Bit Larger) (ID: 67f9208972b69337882d4c18)","timestamp":"2025-04-11T14:18:23.941Z"}
+{"level":"info","message":"Updated product: 2X-Large Vest Bag (1/4 XX-Large) (ID: 67f9208972b69337882d4c1d)","timestamp":"2025-04-11T14:20:32.798Z"}
+{"level":"info","message":"Updated product: Jumbo Size (Supersized Jumbo) (ID: 67f9208972b69337882d4c22)","timestamp":"2025-04-11T14:21:05.656Z"}
+{"level":"info","message":"Updated product: Heavy Duty Large Vest Bag (1/6 Large) (ID: 67f9208972b69337882d4c27)","timestamp":"2025-04-11T14:21:20.074Z"}
+{"level":"info","message":"Updated product: Die Cut Handle Bag (ID: 67f9208972b69337882d4c2c)","timestamp":"2025-04-11T14:21:50.844Z"}
+{"level":"info","message":"Updated product: 2 Bottle Wine Tote Bag (ID: 67f9208972b69337882d4c31)","timestamp":"2025-04-11T14:22:14.313Z"}
+{"level":"info","message":"Updated product: Large 1/6 Tote Bag (ID: 67f9208972b69337882d4c36)","timestamp":"2025-04-11T14:22:30.055Z"}
+{"level":"info","message":"Updated product: Jumbo Grocery Tote Bag (ID: 67f9208972b69337882d4c3b)","timestamp":"2025-04-11T14:22:58.729Z"}
+{"level":"info","message":"Updated product: Thermal Insulated Tote Bag (ID: 67f9208972b69337882d4c40)","timestamp":"2025-04-11T14:23:18.804Z"}
+{"level":"info","message":"Updated product: Heavy Duty Grocery Tote Bag (ID: 67f9208972b69337882d4c45)","timestamp":"2025-04-11T14:23:36.476Z"}
+{"level":"info","message":"Updated product: 6 Bottle Wine Bag (ID: 67f9208972b69337882d4c4a)","timestamp":"2025-04-11T14:23:58.026Z"}
+{"level":"info","message":"Updated product: Mylar Film Gift Bag (ID: 67f9208972b69337882d4c4e)","timestamp":"2025-04-11T14:24:15.800Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:24:20.799Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:24:20.943Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:24:21.071Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:24:24.971Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T14:24:36.421Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:34:25.674Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:34:25.743Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:34:25.867Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:35:40.166Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:35:40.305Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:35:40.436Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:39:47.706Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:39:47.831Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:39:47.976Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:39:48.110Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:40:02.236Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:40:02.366Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:40:02.507Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:40:02.637Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:40:49.263Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:40:49.402Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:40:49.469Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:40:49.531Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:42:37.475Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:42:37.621Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:42:37.755Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:42:43.713Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:42:43.843Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:42:43.988Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:42:44.201Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:42:58.604Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:42:58.740Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:42:58.884Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:42:59.014Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:43:34.169Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:43:34.316Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:43:34.445Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:44:01.717Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T14:44:10.983Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:44:21.408Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:44:21.548Z"}
+{"level":"info","message":"Fetching blog post with slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T14:44:27.281Z"}
+{"level":"info","message":"Fetched blog post: The Environmental Impact of Sustainable Packaging (slug: environmental-impact-sustainable-packaging)","timestamp":"2025-04-11T14:44:27.346Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T14:44:27.503Z"}
+{"level":"info","message":"Fetched 1 related posts for slug: environmental-impact-sustainable-packaging","timestamp":"2025-04-11T14:44:27.684Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:44:47.062Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:44:47.207Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:44:47.339Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:46:56.045Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T14:52:07.106Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:56:43.041Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T14:56:50.861Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:57:01.920Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:57:02.041Z"}
+{"level":"info","message":"Fetching blog post with slug: rise-non-woven-bags-retail","timestamp":"2025-04-11T14:57:29.799Z"}
+{"level":"info","message":"Fetched blog post: The Rise of Non-Woven Bags in Retail (slug: rise-non-woven-bags-retail)","timestamp":"2025-04-11T14:57:29.860Z"}
+{"level":"info","message":"Fetching related posts for blog post slug: rise-non-woven-bags-retail","timestamp":"2025-04-11T14:57:29.995Z"}
+{"level":"info","message":"Fetched 0 related posts for slug: rise-non-woven-bags-retail","timestamp":"2025-04-11T14:57:30.124Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:58:20.734Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:58:20.864Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:58:20.984Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:58:30.810Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:58:30.944Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:58:31.063Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T14:58:39.382Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T14:58:42.467Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T14:58:42.599Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:00:38.299Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:00:38.460Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:00:41.089Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:00:41.993Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:00:42.838Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:00:42.968Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:00:47.894Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:00:49.332Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:00:49.449Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:00:51.721Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:00:52.288Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:00:52.407Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:03:18.370Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:03:18.505Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:03:24.238Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:03:25.113Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:03:25.232Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:04:24.753Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T15:04:24.810Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:04:24.918Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:04:30.230Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:04:30.769Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:04:30.890Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:07:21.376Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:07:21.502Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:07:25.018Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:07:25.137Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:07:25.252Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:07:27.039Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:07:27.177Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:07:27.309Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:09:40.513Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:09:40.631Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:09:42.519Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:09:42.637Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:09:45.146Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:09:47.172Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:09:50.275Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:09:50.390Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:09:52.303Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:09:52.417Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:10:02.012Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:10:02.134Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:10:02.250Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:10:04.048Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:10:04.172Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:10:04.289Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:10:23.895Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:10:25.927Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:11:11.845Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:11:11.961Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:11:13.869Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:11:13.986Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:11:17.280Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:11:19.308Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:11:20.279Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:11:20.394Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:11:22.300Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:11:22.418Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:11:53.875Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:11:55.891Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:12:02.078Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:12:02.201Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:12:02.317Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:12:04.159Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:12:04.282Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:12:04.399Z"}

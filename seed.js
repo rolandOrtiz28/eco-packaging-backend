@@ -1,13 +1,12 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const logger = require('./config/logger');
-const connectDB = require('./config/db');
 const Product = require('./models/Product');
 const BlogPost = require('./models/BlogPost');
 const User = require('./models/User');
 
-// Ensure NODE_ENV is set to development for seeding
-process.env.NODE_ENV = 'development';
+// Ensure NODE_ENV is set to production for seeding
+process.env.NODE_ENV = 'production';
 
 // Hardcoded data from api.js
 const productsData = [
@@ -22,6 +21,7 @@ const productsData = [
     category: "Wine Bags",
     tags: ["wine", "vest", "non-woven"],
     featured: true,
+    inStock: true, // Added inStock field
     details: {
       size: "19.5H x 8W x 4GW inches",
       color: "Black",
@@ -45,6 +45,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["small", "vest", "non-woven"],
     featured: true,
+    inStock: true, // Added inStock field
     details: {
       size: "16H x 8W x 4GW inches",
       color: "Black",
@@ -68,6 +69,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["medium", "vest", "non-woven"],
     featured: true,
+    inStock: true, // Added inStock field
     details: {
       size: "18H x 10W x 5GW inches",
       color: "Black",
@@ -91,6 +93,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["large", "vest", "non-woven"],
     featured: true,
+    inStock: true, // Added inStock field
     details: {
       size: "22H x 11.8W x 7GW inches",
       color: "Black/White/Green/Yellow",
@@ -114,6 +117,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["large", "vest", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "22.5H x 13W x 7GW inches",
       color: "Black/White",
@@ -137,6 +141,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["xx-large", "vest", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "23.5H x 18.7W x 7GW inches",
       color: "Black",
@@ -160,6 +165,7 @@ const productsData = [
     category: "Tote Bags",
     tags: ["jumbo", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "29H x 18W x 7GW inches",
       color: "Black",
@@ -183,6 +189,7 @@ const productsData = [
     category: "Vest Bags",
     tags: ["heavy-duty", "vest", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "22H x 11.8W x 7D inches",
       color: "White",
@@ -206,6 +213,7 @@ const productsData = [
     category: "Specialty Bags",
     tags: ["die-cut", "non-woven"],
     featured: true,
+    inStock: true, // Added inStock field
     details: {
       size: "15H x 11W inches",
       color: "Black",
@@ -229,6 +237,7 @@ const productsData = [
     category: "Wine Bags",
     tags: ["wine", "tote", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "14H x 8W x 4D inches",
       color: "Grey",
@@ -252,6 +261,7 @@ const productsData = [
     category: "Tote Bags",
     tags: ["large", "tote", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "14H x 11.5W x 7D inches",
       color: "Grey",
@@ -275,6 +285,7 @@ const productsData = [
     category: "Tote Bags",
     tags: ["jumbo", "tote", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "15H x 14W x 8GW inches",
       color: "Black",
@@ -298,6 +309,7 @@ const productsData = [
     category: "Specialty Bags",
     tags: ["thermal", "tote", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "15H x 13W x 10D inches",
       color: "Black/White/Green/Yellow",
@@ -322,6 +334,7 @@ const productsData = [
     category: "Tote Bags",
     tags: ["heavy-duty", "tote", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "15H x 13W x 10D inches",
       color: "Black",
@@ -346,6 +359,7 @@ const productsData = [
     category: "Wine Bags",
     tags: ["wine", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "15H x 11W x 8.5GW inches",
       color: "Black/Red Burgundy",
@@ -369,6 +383,7 @@ const productsData = [
     category: "Gift Bags",
     tags: ["mylar", "gift", "non-woven"],
     featured: false,
+    inStock: true, // Added inStock field
     details: {
       size: "20H x 9.5W inches",
       color: "White Flash",
@@ -384,111 +399,43 @@ const productsData = [
   },
 ];
 
-const blogPostsData = [
-  {
-    title: "The Environmental Impact of Sustainable Packaging",
-    excerpt: "Discover how eco-friendly packaging solutions can significantly reduce your business's carbon footprint and contribute to a healthier planet.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    date: "2025-03-15",
-    author: "Emma Rodriguez",
-    readTime: 6,
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
-    categories: ["Sustainability", "Business"],
-    tags: ["eco-friendly", "carbon-footprint", "sustainability"],
-  },
-  {
-    title: "How to Choose the Right Packaging for Your Business",
-    excerpt: "A comprehensive guide to selecting packaging solutions that align with your brand values and meet customer expectations.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    date: "2025-03-02",
-    author: "Michael Chen",
-    readTime: 8,
-    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80",
-    categories: ["Business", "Guides"],
-    tags: ["packaging", "branding", "business"],
-  },
-  {
-    title: "The Rise of Non-Woven Bags in Retail",
-    excerpt: "Exploring the growing popularity of non-woven bags and their benefits for retailers and consumers alike.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    date: "2025-02-18",
-    author: "Sarah Johnson",
-    readTime: 5,
-    image: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=800&q=80",
-    categories: ["Trends", "Retail"],
-    tags: ["non-woven", "retail", "trends"],
-  },
-  {
-    title: "5 Ways Custom Packaging Enhances Brand Recognition",
-    excerpt: "Learn how personalized packaging can significantly boost your brand visibility and create a memorable customer experience.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    date: "2025-02-05",
-    author: "James Wilson",
-    readTime: 7,
-    image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=800&q=80",
-    categories: ["Marketing", "Branding"],
-    tags: ["custom", "branding", "recognition"],
-  },
-  {
-    title: "Navigating Packaging Regulations for International Markets",
-    excerpt: "A guide to understanding and complying with packaging regulations when expanding your business globally.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    date: "2025-01-20",
-    author: "Olivia Martinez",
-    readTime: 9,
-    image: "https://images.unsplash.com/photo-1555252322-ec8b2b2b8456?auto=format&fit=crop&w=800&q=80",
-    categories: ["International", "Compliance"],
-    tags: ["regulations", "international", "compliance"],
-  },
-];
-
-const usersData = [
-  {
-    name: "Admin User",
-    email: "admin@example.com",
-    role: "admin",
-    phone: "+1 (555) 123-4567",
-    address: "123 Admin St",
-    city: "Admin City",
-    state: "CA",
-    zipCode: "90001",
-    country: "US",
-    password: process.env.ADMIN_PASSWORD, // Use the password from .env
-  },
-  {
-    name: "Regular User",
-    email: "user@example.com",
-    role: "user",
-    phone: "+1 (555) 987-6543",
-    address: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    country: "US",
-  },
-];
-
 // Seed the database
 const seedDatabase = async () => {
   try {
-    await connectDB();
+    // Connect to the database using the provided DB_URL
+    await mongoose.connect(process.env.DB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    logger.info('Connected to MongoDB');
 
     // Clear existing data
     await Product.deleteMany({});
-    await BlogPost.deleteMany({});
-    await User.deleteMany({});
+    logger.info('Cleared existing products');
 
     // Insert new data
-    await Product.insertMany(productsData);
-    await BlogPost.insertMany(blogPostsData);
-    await User.insertMany(usersData);
+    const insertedProducts = await Product.insertMany(productsData);
+    logger.info(`Inserted ${insertedProducts.length} products`);
 
     logger.info('Database seeded successfully');
-    process.exit(0);
   } catch (err) {
     logger.error('Error seeding database:', err);
+    throw err; // Throw the error to catch it in the calling function
+  } finally {
+    // Close the database connection
+    await mongoose.connection.close();
+    logger.info('Database connection closed.');
+    process.exit(0);
+  }
+};
+
+// Run the seeding process
+const runSeed = async () => {
+  try {
+    await seedDatabase();
+  } catch (err) {
     process.exit(1);
   }
 };
 
-seedDatabase();
+runSeed();

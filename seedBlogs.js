@@ -1,11 +1,10 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const logger = require('./config/logger');
-const connectDB = require('./config/db');
 const BlogPost = require('./models/BlogPost');
 
-// Ensure NODE_ENV is set to development for seeding
-process.env.NODE_ENV = 'development';
+// Ensure NODE_ENV is set to production for seeding
+process.env.NODE_ENV = 'production';
 
 // Hardcoded blog post data with corrected tags
 const blogPostsData = [
@@ -24,7 +23,7 @@ const blogPostsData = [
     ],
     keywords: ["sustainable packaging", "eco-friendly", "carbon footprint"],
     categories: ["Sustainability", "Business"],
-    tags: ["eco-friendly", "carbon-footprint", "sustainability"], // Corrected to be an array of strings
+    tags: ["eco-friendly", "carbon-footprint", "sustainability"],
     author: "Emma Rodriguez",
     date: new Date("2025-03-15"),
     readTime: 6,
@@ -45,7 +44,7 @@ const blogPostsData = [
     ],
     keywords: ["packaging selection", "branding", "sustainability"],
     categories: ["Business", "Guides"],
-    tags: ["packaging", "branding", "business"], // Corrected
+    tags: ["packaging", "branding", "business"],
     author: "Michael Chen",
     date: new Date("2025-03-02"),
     readTime: 8,
@@ -66,7 +65,7 @@ const blogPostsData = [
     ],
     keywords: ["non-woven bags", "retail trends", "sustainability"],
     categories: ["Trends", "Retail"],
-    tags: ["non-woven", "retail", "trends"], // Corrected
+    tags: ["non-woven", "retail", "trends"],
     author: "Sarah Johnson",
     date: new Date("2025-02-18"),
     readTime: 5,
@@ -87,7 +86,7 @@ const blogPostsData = [
     ],
     keywords: ["custom packaging", "brand recognition", "marketing"],
     categories: ["Marketing", "Branding"],
-    tags: ["custom", "branding", "recognition"], // Corrected
+    tags: ["custom", "branding", "recognition"],
     author: "James Wilson",
     date: new Date("2025-02-05"),
     readTime: 7,
@@ -108,7 +107,7 @@ const blogPostsData = [
     ],
     keywords: ["packaging regulations", "international markets", "compliance"],
     categories: ["International", "Compliance"],
-    tags: ["regulations", "international", "compliance"], // Corrected
+    tags: ["regulations", "international", "compliance"],
     author: "Olivia Martinez",
     date: new Date("2025-01-20"),
     readTime: 9,
@@ -119,7 +118,12 @@ const blogPostsData = [
 // Seed only the BlogPost collection
 const seedBlogs = async () => {
   try {
-    await connectDB();
+    // Connect to the database using the provided DB_URL
+    await mongoose.connect(process.env.DB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    logger.info('Connected to MongoDB');
 
     // Drop all indexes on the blogposts collection to resolve duplicate index issue
     await BlogPost.collection.dropIndexes();
@@ -130,14 +134,28 @@ const seedBlogs = async () => {
     logger.info('Existing blog posts deleted');
 
     // Insert new blog post data
-    await BlogPost.insertMany(blogPostsData);
-    logger.info('Blog posts seeded successfully');
+    const insertedBlogPosts = await BlogPost.insertMany(blogPostsData);
+    logger.info(`Inserted ${insertedBlogPosts.length} blog posts`);
 
-    process.exit(0);
+    logger.info('Blog posts seeded successfully');
   } catch (err) {
     logger.error('Error seeding blog posts:', err);
+    throw err; // Throw the error to catch it in the calling function
+  } finally {
+    // Close the database connection
+    await mongoose.connection.close();
+    logger.info('Database connection closed.');
+    process.exit(0);
+  }
+};
+
+// Run the seeding process
+const runSeed = async () => {
+  try {
+    await seedBlogs();
+  } catch (err) {
     process.exit(1);
   }
 };
 
-seedBlogs();
+runSeed();
