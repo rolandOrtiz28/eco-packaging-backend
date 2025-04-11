@@ -248,7 +248,7 @@ const io = require('socket.io')(server, {
     origin: (origin, callback) => {
       const allowedOrigins = [
         "http://localhost:8080",
-        "https://bagstory.editedgemultimedia.com/",
+        "https://bagstory.editedgemultimedia.com",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
