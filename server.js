@@ -23,7 +23,7 @@ app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
       "http://localhost:8080",
-      "https://your-production-url.com",
+      "https://bagstory.editedgemultimedia.com",
     ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -124,7 +124,7 @@ app.use((req, res, next) => {
 });
 
 // Database Connection
-const dbUrl = process.env.NODE_ENV === "development" ? process.env.DB_URL : process.env.DB_URL_DEV;
+const dbUrl = process.env.NODE_ENV === "production" ? process.env.DB_URL : process.env.DB_URL_DEV;
 mongoose.connect(dbUrl, {
   serverSelectionTimeoutMS: 5000,
   connectTimeoutMS: 10000,

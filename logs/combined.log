@@ -6335,3 +6335,9 @@
 {"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:12:04.159Z"}
 {"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T15:12:04.282Z"}
 {"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-11T15:12:04.399Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T15:17:22.631Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T15:17:24.391Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:28:10.889Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:28:12.880Z"}
+{"level":"info","message":"Fetching current user: admin@example.com (ID: 67f922873b4f71ab194749ac)","timestamp":"2025-04-11T15:28:22.506Z"}
+{"level":"info","message":"Fetching distributor products","timestamp":"2025-04-11T15:28:24.541Z"}
