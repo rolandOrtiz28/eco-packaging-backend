@@ -9,9 +9,13 @@ const paypal = require('@paypal/checkout-server-sdk');
 const logger = require('../config/logger');
 
 // PayPal Configuration
-const environment = process.env.NODE_ENV === 'production'
-  ? new paypal.core.LiveEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET)
-  : new paypal.core.SandboxEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET);
+// const environment = process.env.NODE_ENV === 'production'
+//   ? new paypal.core.LiveEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET)
+//   : new paypal.core.SandboxEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET);
+const environment = new paypal.core.SandboxEnvironment(
+  process.env.PAYPAL_CLIENT_ID,
+  process.env.PAYPAL_CLIENT_SECRET
+);
 const paypalClient = new paypal.core.PayPalHttpClient(environment);
 
 // Middleware to check if user is admin using session
