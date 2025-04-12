@@ -6430,3 +6430,115 @@
 {"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T19:01:20.927Z"}
 {"level":"info","message":"Cleared existing products","timestamp":"2025-04-11T19:01:21.047Z"}
 {"level":"info","message":"Inserted 16 products","timestamp":"2025-04-11T19:01:21.721Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:22:06.618Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:22:08.762Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:22:09.079Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:22:09.269Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:23:47.052Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:23:48.095Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:23:48.186Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:23:48.215Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:29:03.159Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:29:04.164Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:29:04.260Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:29:04.287Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:29:38.300Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:29:39.318Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:29:39.407Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:29:39.420Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:32:08.375Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:32:08.491Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:32:08.498Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:32:50.376Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:32:51.393Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:32:51.493Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:32:51.511Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-12T04:33:59.251Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-12T04:33:59.299Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-12T04:33:59.342Z"}
+{"level":"info","message":"Inserted 5 blog posts","timestamp":"2025-04-12T04:33:59.550Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:34:10.816Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:34:11.765Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:34:11.844Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:34:11.869Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:34:18.832Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:34:18.860Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:34:19.864Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:34:19.898Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T04:36:30.958Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:36:31.940Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:36:31.953Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:36:37.116Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:36:38.124Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-12T04:36:53.582Z"}
+{"level":"info","message":"Dropped all indexes on blogposts collection","timestamp":"2025-04-12T04:36:53.637Z"}
+{"level":"info","message":"Existing blog posts deleted","timestamp":"2025-04-12T04:36:53.689Z"}
+{"level":"info","message":"Inserted 5 blog posts","timestamp":"2025-04-12T04:36:53.879Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:37:27.824Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:37:28.731Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:37:30.959Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:37:31.058Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:37:32.005Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:37:32.113Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:41:19.518Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:41:21.954Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:41:23.048Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:41:23.196Z"}
+{"level":"info","message":"Login attempt for email: admin@example.com","timestamp":"2025-04-12T04:42:13.910Z"}
+{"level":"warn","message":"Login failed for email: admin@example.com - Invalid email or password","timestamp":"2025-04-12T04:42:14.087Z"}
+{"level":"info","message":"Login attempt for email: admin@example.com","timestamp":"2025-04-12T04:42:20.889Z"}
+{"level":"warn","message":"Login failed for email: admin@example.com - Invalid email or password","timestamp":"2025-04-12T04:42:21.069Z"}
+{"level":"info","message":"Login attempt for email: admin@example.com","timestamp":"2025-04-12T04:42:28.345Z"}
+{"level":"warn","message":"Login failed for email: admin@example.com - Invalid email or password","timestamp":"2025-04-12T04:42:28.511Z"}
+{"level":"info","message":"Login attempt for email: admin@example.com","timestamp":"2025-04-12T04:42:33.796Z"}
+{"level":"warn","message":"Login failed for email: admin@example.com - Invalid email or password","timestamp":"2025-04-12T04:42:33.969Z"}
+{"level":"info","message":"Login attempt for email: user@example.com","timestamp":"2025-04-12T04:44:08.546Z"}
+{"level":"warn","message":"Login failed for email: user@example.com - Invalid email or password","timestamp":"2025-04-12T04:44:08.704Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:44:27.931Z"}
+{"level":"info","message":"User registration attempt: admin@sample.com","timestamp":"2025-04-12T04:45:01.786Z"}
+{"level":"info","message":"User registered and logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:45:02.087Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:45:15.757Z"}
+{"level":"info","message":"User logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:45:15.991Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:45:16.392Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:45:16.442Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:45:16.540Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:45:17.310Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:45:17.361Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:45:17.447Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:45:42.217Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:45:43.395Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:45:43.448Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T04:45:43.536Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:45:52.468Z"}
+{"level":"info","message":"User logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:45:52.674Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:46:35.290Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:46:46.385Z"}
+{"level":"warn","message":"Login failed for email: admin@sample.com - Invalid email or password","timestamp":"2025-04-12T04:46:46.508Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:46:52.977Z"}
+{"level":"info","message":"User logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:46:53.169Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:53:01.102Z"}
+{"level":"info","message":"Login attempt for email: user@example.com","timestamp":"2025-04-12T04:53:14.552Z"}
+{"level":"warn","message":"Login failed for email: user@example.com - Invalid email or password","timestamp":"2025-04-12T04:53:14.766Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:53:27.604Z"}
+{"level":"info","message":"User logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:53:27.878Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:53:38.527Z"}
+{"level":"info","message":"Login attempt for email: admin@sample.com","timestamp":"2025-04-12T04:53:55.175Z"}
+{"level":"info","message":"User logged in: admin@sample.com (ID: 67f9efcdfbffc24327c9a4e3)","timestamp":"2025-04-12T04:53:55.423Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-12T04:54:41.837Z"}
+{"level":"info","message":"Fetching current user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0)","timestamp":"2025-04-12T06:20:08.122Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T06:20:09.179Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:20:09.358Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T06:20:09.492Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T06:20:10.242Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:20:10.402Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T06:20:10.445Z"}
+{"level":"info","message":"Fetching user with ID: 67f6274f7ef969769e636fd0","timestamp":"2025-04-12T06:20:24.977Z"}
+{"level":"info","message":"Fetched user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0) with 0 orders","timestamp":"2025-04-12T06:20:25.024Z"}
+{"level":"info","message":"Fetching user with ID: 67f6274f7ef969769e636fd0","timestamp":"2025-04-12T06:20:26.044Z"}
+{"level":"info","message":"Fetched user: gwapohejunjo@gmail.com (ID: 67f6274f7ef969769e636fd0) with 0 orders","timestamp":"2025-04-12T06:20:26.092Z"}
+{"level":"info","message":"User logged out: gwapohejunjo@gmail.com","timestamp":"2025-04-12T06:20:32.952Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T06:20:32.988Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:20:33.117Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T06:20:33.152Z"}
+{"level":"info","message":"Login attempt for email: rolandortiz281995@gmail.com","timestamp":"2025-04-12T06:21:49.214Z"}
+{"level":"info","message":"User logged in: rolandortiz281995@gmail.com (ID: 67f627a57ef969769e63706c)","timestamp":"2025-04-12T06:21:49.432Z"}
