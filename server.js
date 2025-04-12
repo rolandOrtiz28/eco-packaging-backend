@@ -1,4 +1,3 @@
-// index.js
 require("dotenv").config();
 
 const express = require("express");
@@ -19,29 +18,29 @@ const isProduction = process.env.NODE_ENV === "production";
 const secret = process.env.SESSION_SECRET;
 
 // CORS Configuration
-app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      "http://localhost:8080",
-      "https://bagstory.editedgemultimedia.com",
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+const corsOptions = {
+  origin: [
+    "http://localhost:8080",
+    "https://bagstory.editedgemultimedia.com",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
-}));
+};
 
+// Apply CORS to all routes, including preflight
+app.use(cors(corsOptions));
 
-
+// Debug CORS headers
 app.use((req, res, next) => {
   res.on('finish', () => {
     const headers = res.getHeaders();
     console.log(`[${req.method}] ${req.originalUrl} =>`, {
       'Set-Cookie': headers['set-cookie'],
       'Access-Control-Allow-Origin': headers['access-control-allow-origin'],
+      'Access-Control-Allow-Methods': headers['access-control-allow-methods'],
+      'Access-Control-Allow-Headers': headers['access-control-allow-headers'],
+      'Access-Control-Allow-Credentials': headers['access-control-allow-credentials'],
     });
   });
   next();
@@ -68,6 +67,7 @@ const styleSrcUrls = [
 const connectSrcUrls = [
   "https://api.stripe.com/",
   "https://fonts.gstatic.com/",
+  "https://bagstoryapi.editedgemultimedia.com", // Add backend for Socket.IO
 ];
 
 const imgSrcUrls = [
@@ -206,12 +206,13 @@ app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));
 
+// Fallback for unmatched routes
 app.use((req, res, next) => {
-  console.warn('⚠️  Unmatched route:', req.method, req.originalUrl);
+  console.warn('⚠️ Unmatched route:', req.method, req.originalUrl);
   res.status(404).json({ message: 'Route not found' });
 });
 
-
+// Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');
   app.use(express.static(path.join(__dirname, 'client', 'dist')));
@@ -219,12 +220,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
   });
 }
-
-app.use((req, res) => {
-  const message = `404 Not Found: ${req.method} ${req.originalUrl}`;
-  console.error(message);
-  res.status(404).json({ error: "Not Found" });
-});
 
 // Error Handling
 app.use((err, req, res, next) => {
@@ -243,29 +238,21 @@ const server = app.listen(PORT, () => {
 });
 
 // Socket.IO setup
-const io = require('socket.io')(server, {
+const io = new Server(server, {
   cors: {
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        "http://localhost:8080",
-        "https://bagstory.editedgemultimedia.com",
-      ];
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [
+      "http://localhost:8080",
+      "https://bagstory.editedgemultimedia.com",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
-app.options('*', cors());
-
 app.set('io', io);
 
 const Chat = require('./models/Chat');
+const Lead = require('./models/Lead');
 const sendEmail = require('./utils/sendEmail');
 
 // Track active chats and last message timestamps for inactivity timeout
@@ -465,6 +452,7 @@ io.on('connection', (socket) => {
     console.log('Server: A client disconnected:', socket.id);
   });
 });
+
 // Export activeChats for use in routes
 app.set('activeChats', activeChats);
 
@@ -477,7 +465,3 @@ process.on("SIGTERM", () => {
     process.exit(0);
   });
 });
-
-
-
-// base
