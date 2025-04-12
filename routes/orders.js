@@ -14,9 +14,10 @@ const logger = require('../config/logger');
 //   ? new paypal.core.LiveEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET)
 //   : new paypal.core.SandboxEnvironment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET);
 const environment = new paypal.core.SandboxEnvironment(
-  process.env.PAYPAL_CLIENT_ID,
-  process.env.PAYPAL_CLIENT_SECRET
+  'ARWl3thZ7jIojKvDMT_abu_PK9gLQUKIsZtPOS30BH6pnrPE5eRonnxECNSgcFFDPLreS4UoX7rflFYI',
+  'EEdq0U8MRvs5R1BsXrRcxlWsuJFmAJGdLDructYqnJCYjrxrPaaFqUTRzI2RNeio8byDHCHrvWFL8NuZ'
 );
+console.log('PayPal Sandbox Environment Initialized with Client ID:', 'ARWl3thZ7jIojKvDMT_abu_PK9gLQUKIsZtPOS30BH6pnrPE5eRonnxECNSgcFFDPLreS4UoX7rflFYI');
 const paypalClient = new paypal.core.PayPalHttpClient(environment);
 
 // Middleware to check if user is admin using session
@@ -115,7 +116,7 @@ router.post('/create', [
 
     res.status(200).json({ paypalOrderId: order.result.id, approvalUrl });
   } catch (err) {
-    console.error('Error creating PayPal order:', err.message, err.stack);
+    console.error('PayPal Error Details:', err.response?.data || err.message, err.stack);
     res.status(500).json({ error: 'Failed to create PayPal order', details: err.message });
   }
 });
