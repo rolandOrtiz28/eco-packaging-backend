@@ -6,10 +6,16 @@ const { body, validationResult } = require('express-validator');
 
 // Middleware to check if user is admin (assuming you have this)
 const isAdmin = (req, res, next) => {
-  if (!req.user || req.user.role !== 'admin') {
-    return res.status(403).json({ error: 'Access denied. Admin only.' });
+  console.log('isAdmin middleware (leads.js):', {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
+    role: req.user?.role,
+  });
+  if (req.isAuthenticated() && req.user && req.user.role === 'admin') {
+    return next();
   }
-  next();
+  console.warn('Unauthorized access attempt to leads route', { user: req.user });
+  return res.status(403).json({ error: 'Access denied. Admin only.' });
 };
 
 // GET /leads - Fetch all leads (for admin)
