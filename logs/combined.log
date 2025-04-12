@@ -6430,3 +6430,13 @@
 {"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T19:01:20.927Z"}
 {"level":"info","message":"Cleared existing products","timestamp":"2025-04-11T19:01:21.047Z"}
 {"level":"info","message":"Inserted 16 products","timestamp":"2025-04-11T19:01:21.721Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T04:19:54.217Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T04:19:54.814Z"}
+{"level":"info","message":"Fetched 0 blog posts","timestamp":"2025-04-12T04:19:56.003Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-12T06:22:19.706Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:22:20.106Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T06:22:20.505Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:22:30.711Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T06:22:31.107Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-12T06:22:33.003Z"}
+{"level":"info","message":"Fetched 5 blog posts","timestamp":"2025-04-12T06:22:33.404Z"}
