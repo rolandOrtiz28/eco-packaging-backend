@@ -6412,3 +6412,21 @@
 {"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T16:37:19.822Z"}
 {"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T16:37:19.921Z"}
 {"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T16:37:19.933Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T18:03:04.645Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T18:03:09.056Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T18:03:09.101Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T18:03:09.114Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T18:03:11.075Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T18:03:11.166Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T18:03:11.173Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T18:03:49.370Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T18:03:51.425Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T18:03:51.600Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T18:03:51.627Z"}
+{"level":"info","message":"No authenticated user found","timestamp":"2025-04-11T18:04:01.063Z"}
+{"level":"info","message":"Fetched 16 products from database","timestamp":"2025-04-11T18:04:03.092Z"}
+{"level":"info","message":"Fetching blog posts with query: {\"published\":true}","timestamp":"2025-04-11T18:04:03.183Z"}
+{"level":"info","message":"Fetched 4 blog posts","timestamp":"2025-04-11T18:04:03.193Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-04-11T19:01:20.927Z"}
+{"level":"info","message":"Cleared existing products","timestamp":"2025-04-11T19:01:21.047Z"}
+{"level":"info","message":"Inserted 16 products","timestamp":"2025-04-11T19:01:21.721Z"}
