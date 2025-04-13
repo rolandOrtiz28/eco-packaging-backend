@@ -28,10 +28,8 @@ const corsOptions = {
   credentials: true,
 };
 
-// Apply CORS to all routes, including preflight
 app.use(cors(corsOptions));
 
-// Debug CORS headers
 app.use((req, res, next) => {
   res.on('finish', () => {
     const headers = res.getHeaders();
@@ -67,7 +65,7 @@ const styleSrcUrls = [
 const connectSrcUrls = [
   "https://api.stripe.com/",
   "https://fonts.gstatic.com/",
-  "https://bagstoryapi.editedgemultimedia.com", // Add backend for Socket.IO
+  "https://bagstoryapi.editedgemultimedia.com",
 ];
 
 const imgSrcUrls = [
@@ -304,7 +302,6 @@ io.on('connection', (socket) => {
           message: data.message,
         });
 
-        // Set a 1-minute timeout for admin response
         setTimeout(async () => {
           const updatedChat = await Chat.findOne({ userId: data.userId });
           if (updatedChat && !updatedChat.messages.some(msg => msg.text === 'A human agent has joined the chat!')) {
@@ -313,7 +310,6 @@ io.on('connection', (socket) => {
               message: 'Sorry, our team is currently unavailable. We’ll follow up with you via email soon!',
             });
 
-            // Save lead and notify admin
             try {
               const lead = await Lead.findOne({ email: data.email });
               if (!lead) {
@@ -453,7 +449,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// Export activeChats for use in routes
 app.set('activeChats', activeChats);
 
 // Graceful Shutdown

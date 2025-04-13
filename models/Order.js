@@ -16,9 +16,10 @@ const orderSchema = new mongoose.Schema({
   status: { type: String, enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled'], default: 'Processing' },
   items: [itemSchema],
   total: { type: Number, required: true },
-  discount: { type: Number, default: 0 }, // Add discount field
+  discount: { type: Number, default: 0 },
   paymentId: { type: String, required: true },
   paymentStatus: { type: String, enum: ['PENDING', 'COMPLETED', 'FAILED'], default: 'PENDING' },
+  paymentMethod: { type: String, enum: ['paypal', 'stripe'], required: true }, // Added paymentMethod
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);
