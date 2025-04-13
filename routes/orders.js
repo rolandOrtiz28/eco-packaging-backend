@@ -8,6 +8,48 @@ const User = require('../models/User'); // Add User model
 const { body, validationResult } = require('express-validator');
 const paypal = require('@paypal/checkout-server-sdk');
 const logger = require('../config/logger');
+const sendEmail = require('../utils/sendEmail');
+const twilio = require('twilio');
+
+// Function to send SMS to all admins
+// Function to send SMS to all admins
+const sendOrderSmsToAdmins = async (orderDetails) => {
+  try {
+    // Check if ADMIN_PHONE_NUMBERS is defined
+    console.log('Environment Variables Loaded:');
+console.log('TWILIO_ACCOUNT_SID:', process.env.TWILIO_ACCOUNT_SID);
+console.log('TWILIO_AUTH_TOKEN:', process.env.TWILIO_AUTH_TOKEN);
+console.log('TWILIO_PHONE_NUMBER:', process.env.TWILIO_PHONE_NUMBER);
+console.log('ADMIN_PHONE_NUMBERS:', process.env.ADMIN_PHONE_NUMBERS);
+    if (!process.env.ADMIN_PHONE_NUMBERS) {
+      throw new Error('ADMIN_PHONE_NUMBERS is not defined in the .env file');
+    }
+
+    const twilioClient = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+    const adminPhoneNumbers = process.env.ADMIN_PHONE_NUMBERS.split(',');
+
+    const { orderId, userEmail, status, total, discount, items, paymentId } = orderDetails;
+    const smsBody = `New Order: ${orderId}\nUser: ${userEmail}\nStatus: ${status}\nTotal: $${total.toFixed(2)}\nDiscount: $${discount.toFixed(2)}\nItems: ${items.map(item => `${item.name} (Qty: ${item.quantity})`).join(', ')}\nPayment ID: ${paymentId}`;
+
+    // Send SMS to each admin
+    for (const phoneNumber of adminPhoneNumbers) {
+      try {
+        await twilioClient.messages.create({
+          body: smsBody,
+          from: process.env.TWILIO_PHONE_NUMBER,
+          to: phoneNumber.trim(),
+        });
+        console.log(`SMS sent to ${phoneNumber} for order: ${orderId}`);
+      } catch (smsErr) {
+        console.error(`Failed to send SMS to ${phoneNumber}:`, smsErr.message);
+        // Log error but continue with other numbers
+      }
+    }
+  } catch (twilioErr) {
+    console.error('Failed to initialize Twilio or send SMS:', twilioErr.message);
+    throw new Error('Failed to send SMS notifications: ' + twilioErr.message);
+  }
+};
 
 // PayPal Configuration
 // const environment = process.env.NODE_ENV === 'production'
@@ -150,6 +192,7 @@ router.get('/capture', async (req, res) => {
 });
 
 // POST /api/order/complete - Save order after capture
+// POST /api/order/complete - Save order after capture
 router.post('/complete', [
   body('userId').notEmpty().withMessage('User ID is required'),
   body('paypalOrderId').notEmpty().withMessage('PayPal Order ID is required'),
@@ -222,6 +265,7 @@ router.post('/complete', [
       discount,
       paymentId,
       paymentStatus: 'COMPLETED',
+      status: 'Processing', // Default status for new orders
     });
 
     await newOrder.save();
@@ -234,6 +278,28 @@ router.post('/complete', [
       lead.status = 'Converted';
       await lead.save();
       console.log(`Lead updated with orderId: ${newOrder._id}`);
+    }
+
+    // Send email to admin with order details, including status
+    try {
+      const emailBody = `
+        New Order Completed: ${orderId}
+        User: ${user.email}
+        Status: ${newOrder.status}
+        Total: $${total.toFixed(2)}
+        Discount: $${discount.toFixed(2)}
+        Items: ${items.map(item => `${item.name} (Qty: ${item.quantity}, Price: $${item.price})`).join(', ')}
+        Payment ID: ${paymentId}
+      `;
+      await sendEmail(
+        process.env.ADMIN_EMAIL,
+        `New Order Completed: ${orderId}`,
+        emailBody
+      );
+      console.log(`Email sent to admin for order: ${orderId}`);
+    } catch (emailErr) {
+      console.error('Failed to send email to admin:', emailErr);
+      // Log error but don't fail the request
     }
 
     res.status(201).json({ orderId, paymentId });
@@ -283,5 +349,33 @@ router.put(
     }
   }
 );
+
+
+// Test endpoint to trigger SMS
+router.post('/test-sms', async (req, res) => {
+  try {
+    // Sample order data for testing
+    const sampleOrder = {
+      orderId: 'ECO-TEST-001',
+      userEmail: 'testuser@example.com',
+      status: 'Processing',
+      total: 99.99,
+      discount: 5.00,
+      items: [
+        { name: 'Wine Vest Bag', quantity: 2, price: 0.1 },
+        { name: 'Medium Vest Bag', quantity: 1, price: 0.11 },
+      ],
+      paymentId: 'PAYID-TEST123',
+    };
+
+    // Trigger SMS function
+    await sendOrderSmsToAdmins(sampleOrder);
+
+    res.status(200).json({ message: 'SMS test triggered successfully. Check the admin phone numbers for the message.' });
+  } catch (err) {
+    console.error('Error in test-sms endpoint:', err.message);
+    res.status(500).json({ error: 'Failed to trigger SMS test', details: err.message });
+  }
+});
 
 module.exports = router;
