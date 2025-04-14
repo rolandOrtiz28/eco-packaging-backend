@@ -371,7 +371,7 @@ router.post('/stripe/create', [
 });
 
 // POST /api/order/stripe/complete - Complete order after Stripe payment
-router.post('/complete', [
+router.post('/stripe/complete', [
   body('userId').notEmpty().withMessage('User ID is required'),
   body('paypalOrderId').optional().notEmpty().withMessage('PayPal Order ID is required for PayPal payments'),
   body('paymentId').notEmpty().withMessage('Payment ID is required'),
