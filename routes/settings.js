@@ -1,4 +1,3 @@
-// routes/settings.js
 const express = require('express');
 const router = express.Router();
 const Settings = require('../models/Settings');
@@ -17,13 +16,13 @@ router.get('/', async (req, res) => {
   try {
     const settings = await Settings.find();
     const settingsMap = {};
+    const numericKeys = ['taxRate', 'deliveryFee', 'freeDeliveryThreshold', 'surCharge'];
     settings.forEach(setting => {
-      settingsMap[setting.key] = {
-        value: setting.value,
-        type: setting.type,
-        description: setting.description,
-      };
+      settingsMap[setting.key] = numericKeys.includes(setting.key) 
+        ? parseFloat(setting.value) || 0 
+        : setting.value;
     });
+    
     res.status(200).json(settingsMap);
   } catch (err) {
     console.error('Error fetching settings:', err.message);
@@ -34,41 +33,35 @@ router.get('/', async (req, res) => {
 // POST /api/settings - Update or create a setting (admin only)
 router.post('/', isAdmin, [
   body('key').notEmpty().withMessage('Key is required'),
-  body('value').isFloat({ min: 0 }).withMessage('Value must be a non-negative number'),
-  body('type').isIn(['flat', 'percentage']).withMessage('Type must be either "flat" or "percentage"'),
-  body('description').optional().isString().withMessage('Description must be a string'),
+  body('value').notEmpty().withMessage('Value is required'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.warn('Validation errors in settings update:', errors.array());
     return res.status(400).json({ errors: errors.array() });
   }
 
   try {
-    const { key, value, type, description } = req.body;
+    const { key, value } = req.body;
+    // Convert value to number if it's a numeric setting
+    const numericKeys = ['taxRate', 'deliveryFee', 'freeDeliveryThreshold', 'surCharge'];
+    const parsedValue = numericKeys.includes(key) ? parseFloat(value) : value;
+
+    if (numericKeys.includes(key) && isNaN(parsedValue)) {
+      console.warn(`Invalid numeric value for ${key}:`, value);
+      return res.status(400).json({ error: `Value for ${key} must be a valid number` });
+    }
+
     const setting = await Settings.findOneAndUpdate(
       { key },
-      { value, type, description },
+      { value: parsedValue },
       { upsert: true, new: true }
     );
+   
     res.status(200).json(setting);
   } catch (err) {
-    console.error('Error updating setting:', err.message);
-    res.status(500).json({ error: 'Failed to update setting' });
-  }
-});
-
-// DELETE /api/settings/:key - Delete a setting (admin only)
-router.delete('/:key', isAdmin, async (req, res) => {
-  try {
-    const { key } = req.params;
-    const setting = await Settings.findOneAndDelete({ key });
-    if (!setting) {
-      return res.status(404).json({ error: 'Setting not found' });
-    }
-    res.status(200).json({ message: 'Setting deleted successfully' });
-  } catch (err) {
-    console.error('Error deleting setting:', err.message);
-    res.status(500).json({ error: 'Failed to delete setting' });
+    console.error('Error updating setting:', err.message, err.stack);
+    res.status(500).json({ error: 'Failed to update setting', details: err.message });
   }
 });
 

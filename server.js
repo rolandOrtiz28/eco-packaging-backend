@@ -200,7 +200,6 @@ app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/leads', require('./routes/leads'));
 app.use('/api/chat', require('./routes/chat'));
 app.use('/api/order', require('./routes/orders'));
-app.use('/api/receipts', require('./routes/receipts'));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));

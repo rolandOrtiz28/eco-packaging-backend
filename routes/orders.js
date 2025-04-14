@@ -100,17 +100,20 @@ router.post('/create', [
     const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
     const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
     const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
+    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
 
     const settings = {
-      taxRate: taxRateSetting ? taxRateSetting.value : 0.08,
-      deliveryFee: deliveryFeeSetting ? deliveryFeeSetting.value : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting ? freeDeliveryThresholdSetting.value : 50,
+      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
+      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
+      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
+      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
     const tax = subtotal * settings.taxRate;
-    const calculatedTotal = subtotal + shipping + tax - (discount || 0);
+    const surCharge = settings.surCharge;
+    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
 
     if (Math.abs(calculatedTotal - total) > 0.01) {
       console.error('Total mismatch:', { calculated: calculatedTotal, received: total });
@@ -208,17 +211,20 @@ router.post('/complete', [
     const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
     const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
     const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
+    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
 
     const settings = {
-      taxRate: taxRateSetting ? taxRateSetting.value : 0.08,
-      deliveryFee: deliveryFeeSetting ? deliveryFeeSetting.value : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting ? freeDeliveryThresholdSetting.value : 50,
+      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
+      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
+      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
+      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
     const tax = subtotal * settings.taxRate;
-    const calculatedTotal = subtotal + shipping + tax - (discount || 0);
+    const surCharge = settings.surCharge;
+    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
 
     if (Math.abs(calculatedTotal - total) > 0.01) {
       console.error('Total mismatch in complete:', { calculated: calculatedTotal, received: total });
@@ -332,21 +338,30 @@ router.post('/stripe/create', [
     console.log('Creating Stripe payment intent:', req.body);
     const { userId, items, total, discount } = req.body;
 
+    // Fetch settings
     const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
     const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
     const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
+    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
 
     const settings = {
-      taxRate: taxRateSetting ? taxRateSetting.value : 0.08,
-      deliveryFee: deliveryFeeSetting ? deliveryFeeSetting.value : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting ? freeDeliveryThresholdSetting.value : 50,
+      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
+      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
+      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
+      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
     };
 
+    // Calculate total
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
     const tax = subtotal * settings.taxRate;
-    const calculatedTotal = subtotal + shipping + tax - (discount || 0);
+    const surCharge = settings.surCharge;
+    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
 
+    // Log for debugging
+    console.log('Backend calculations:', { subtotal, shipping, tax, surCharge, discount, calculatedTotal, receivedTotal: total });
+
+    // Validate total
     if (Math.abs(calculatedTotal - total) > 0.01) {
       console.error('Total mismatch:', { calculated: calculatedTotal, received: total });
       return res.status(400).json({ error: 'Total amount mismatch' });
@@ -403,17 +418,20 @@ router.post('/stripe/complete', [
     const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
     const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
     const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
+    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
 
     const settings = {
-      taxRate: taxRateSetting ? taxRateSetting.value : 0.08,
-      deliveryFee: deliveryFeeSetting ? deliveryFeeSetting.value : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting ? freeDeliveryThresholdSetting.value : 50,
+      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
+      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
+      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
+      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
     const tax = subtotal * settings.taxRate;
-    const calculatedTotal = subtotal + shipping + tax - (discount || 0);
+    const surCharge = settings.surCharge;
+    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
 
     if (Math.abs(calculatedTotal - total) > 0.01) {
       console.error('Total mismatch in complete:', { calculated: calculatedTotal, received: total });
