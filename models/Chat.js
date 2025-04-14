@@ -7,12 +7,13 @@ const messageSchema = new mongoose.Schema({
 });
 
 const chatSchema = new mongoose.Schema({
-  userId: { type: String, required: true }, // Can be lead ID for guests or user ID for logged-in users
+  userId: { type: String, required: true },
   name: { type: String, required: true },
   email: { type: String, required: true },
   messages: [messageSchema],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  smsNotified: { type: Boolean, default: false }, // Track SMS notifications
 });
 
 module.exports = mongoose.model('Chat', chatSchema);

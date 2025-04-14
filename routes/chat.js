@@ -5,6 +5,7 @@ const Lead = require('../models/Lead');
 const Chat = require('../models/Chat');
 const logger = require('../config/logger');
 const sendEmail = require('../utils/sendEmail');
+const { sendChatRequestSmsToAdmins } = require('../utils/sendSms');
 
 // Company data (unchanged)
 const companyData = {
@@ -291,7 +292,7 @@ router.post('/', [
   }
 
   try {
-    console.log('Submitting chat message:', req.body);
+    console.debug('POST /api/chat: Processing chat submission', req.body);
     const { name, email, message } = req.body;
 
     // Find or create a chat session
@@ -317,10 +318,11 @@ router.post('/', [
     const activeChats = req.app.get('activeChats');
     const isAdminConnected = activeChats?.has(chat.userId);
 
-    // Check if user wants to talk to a human
-    const wantsHuman = message.toLowerCase().includes('talk to human');
+    // Check if user wants to talk to an admin
+    const wantsHuman = message.toLowerCase().includes('speak to admin');
+    console.debug('POST /api/chat: Checking for admin request', { wantsHuman, message });
     if (wantsHuman) {
-      console.log('User requested to talk to a human');
+      console.debug('POST /api/chat: User requested to speak to an admin', { email, userId: chat.userId });
       const lead = await Lead.findOne({ email });
       if (!lead) {
         const newLead = new Lead({
@@ -328,7 +330,7 @@ router.post('/', [
           email,
           source: 'Chat Widget',
           date: new Date().toISOString().split('T')[0],
-          message: 'Requested to talk to a human',
+          message: 'Requested to speak to an admin',
         });
         await newLead.save();
         chat.userId = newLead._id.toString();
@@ -336,20 +338,34 @@ router.post('/', [
         chat.userId = lead._id.toString();
       }
 
-      if (!chat.messages.some(msg => msg.text.includes('Your request has been sent to a human agent'))) {
+      if (!chat.messages.some(msg => msg.text.includes('Your request has been sent to an admin'))) {
         try {
           await sendEmail(
             process.env.ADMIN_EMAIL,
-            'Chat Request: User Wants to Speak with a Human',
-            `User ${name} (${email}) has requested to speak with a human. Message: ${message}`
+            'Chat Request: User Wants to Speak with an Admin',
+            `User ${name} (${email}) has requested to speak with an admin. Message: ${message}`
           );
+          console.debug('POST /api/chat: Email notification sent to admin', { email });
+          
+          // Send SMS notification
+          if (!chat.smsNotified) {
+            await sendChatRequestSmsToAdmins({
+              name,
+              email,
+              message,
+              userId: chat.userId,
+              timestamp: new Date(),
+            });
+            chat.smsNotified = true;
+            console.debug('POST /api/chat: SMS notification sent to admins', { userId: chat.userId });
+          }
         } catch (emailErr) {
-          console.error('Failed to send email to admin:', emailErr);
+          console.error('POST /api/chat: Failed to send notifications', { error: emailErr.message });
         }
       }
 
       chat.messages.push({
-        text: 'Your request has been sent to a human agent. Please wait for a response.',
+        text: 'Your request has been sent to an admin. Please wait for a response.',
         sender: 'bot',
         name: 'EcoBuddy',
         timestamp: new Date(),
@@ -358,14 +374,14 @@ router.post('/', [
 
       req.app.get('io').to(chat.userId).emit('message', {
         userId: chat.userId,
-        text: 'Your request has been sent to a human agent. Please wait for a response.',
+        text: 'Your request has been sent to an admin. Please wait for a response.',
         sender: 'bot',
         name: 'EcoBuddy',
         timestamp: new Date().toISOString(),
       });
 
       return res.json({
-        message: 'Your request has been sent to a human agent. Please wait for a response.',
+        message: 'Your request has been sent to an admin. Please wait for a response.',
         awaitingHuman: true,
         userId: chat.userId,
       });
@@ -373,7 +389,7 @@ router.post('/', [
 
     // If an admin is connected, skip AI response and do not emit duplicate message
     if (isAdminConnected) {
-      console.log('Admin is connected, skipping AI response and message emission for user message:', message);
+      console.debug('POST /api/chat: Admin is connected, skipping AI response', { userId: chat.userId });
       await chat.save();
       return res.json({ message: 'Message received, admin is handling the chat.', awaitingHuman: false, userId: chat.userId });
     }
@@ -416,17 +432,17 @@ router.post('/', [
 
 ${JSON.stringify(companyData, null, 2)}
 
-Provide detailed and accurate responses based on this information. If the user asks about something not covered in the data, respond politely and suggest they contact the support team by typing "talk to human".`
+Provide detailed and accurate responses based on this information. If the user asks about something not covered in the data, respond politely and suggest they contact the support team by typing "speak to admin".`
           },
           { role: 'user', content: message },
         ],
       });
       aiResponse = response.choices[0].message.content;
+      console.debug('POST /api/chat: OpenAI response received', { aiResponse });
     } catch (openAiErr) {
-      console.error('OpenAI API error:', openAiErr.message);
-      aiResponse = "I'm sorry, I'm having trouble processing your request right now. Please try again later or type 'talk to human' to speak with a human agent.";
+      console.error('POST /api/chat: OpenAI API error', { error: openAiErr.message });
+      aiResponse = "I'm sorry, I'm having trouble processing your request right now. Please try again later or type 'speak to admin' to speak with an admin.";
     }
-    console.log('OpenAI response:', aiResponse);
 
     chat.messages.push({
       text: aiResponse,
@@ -462,8 +478,8 @@ Provide detailed and accurate responses based on this information. If the user a
 
     res.json({ message: aiResponse, awaitingHuman: false, userId: chat.userId });
   } catch (err) {
-    console.error('Error processing chat message:', err.message, err.stack);
-    logger.error('Error processing chat message:', err.message, err.stack);
+    console.error('POST /api/chat: Error processing chat message', { error: err.message, stack: err.stack });
+    logger.error('POST /api/chat: Error processing chat message', { error: err.message, stack: err.stack });
     await sendEmail(
       process.env.ADMIN_EMAIL,
       'Error: Chat Message Save Failed',
@@ -473,23 +489,84 @@ Provide detailed and accurate responses based on this information. If the user a
   }
 });
 
+// Endpoint to manage admins (mute, unmute, remove)
+router.post('/manage-admin', async (req, res) => {
+  try {
+    console.debug('POST /api/chat/manage-admin: Received request', req.body);
+    const { userId, adminSocketId, action } = req.body;
+
+    if (!userId || !adminSocketId || !action) {
+      console.warn('POST /api/chat/manage-admin: Missing required fields', { userId, adminSocketId, action });
+      return res.status(400).json({ error: 'userId, adminSocketId, and action are required' });
+    }
+
+    if (!['mute', 'unmute', 'remove'].includes(action)) {
+      console.warn('POST /api/chat/manage-admin: Invalid action', { action });
+      return res.status(400).json({ error: 'Invalid action' });
+    }
+
+    const io = req.app.get('io');
+    const chatAdmins = req.app.get('chatAdmins');
+
+    if (!chatAdmins.has(userId)) {
+      console.warn('POST /api/chat/manage-admin: No admins found for chat', { userId });
+      return res.status(404).json({ error: 'No admins found for this chat' });
+    }
+
+    const admins = chatAdmins.get(userId);
+    if (!admins.has(adminSocketId)) {
+      console.warn('POST /api/chat/manage-admin: Target admin not in chat', { userId, adminSocketId });
+      return res.status(404).json({ error: 'Target admin not found in chat' });
+    }
+
+    if (action === 'mute') {
+      admins.set(adminSocketId, { ...admins.get(adminSocketId), muted: true });
+      io.to(adminSocketId).emit('admin-muted', { userId });
+      console.debug('POST /api/chat/manage-admin: Admin muted', { userId, adminSocketId });
+    } else if (action === 'unmute') {
+      admins.set(adminSocketId, { ...admins.get(adminSocketId), muted: false });
+      io.to(adminSocketId).emit('admin-unmuted', { userId });
+      console.debug('POST /api/chat/manage-admin: Admin unmuted', { userId, adminSocketId });
+    } else if (action === 'remove') {
+      io.sockets.sockets.get(adminSocketId)?.leave(userId);
+      admins.delete(adminSocketId);
+      io.to(adminSocketId).emit('admin-removed', { userId });
+      console.debug('POST /api/chat/manage-admin: Admin removed', { userId, adminSocketId });
+    }
+
+    io.to('admins').emit('admin-status-updated', {
+      userId,
+      adminSocketId,
+      action,
+    });
+
+    res.json({ message: `Admin ${action}d successfully` });
+  } catch (err) {
+    console.error('POST /api/chat/manage-admin: Error processing request', { error: err.message, stack: err.stack });
+    res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+});
+
 // Endpoint to retrieve chat history (used by admin)
 router.get('/history', async (req, res) => {
   try {
     const { email } = req.query;
     if (!email) {
+      console.warn('GET /api/chat/history: Email is required');
       return res.status(400).json({ error: 'Email is required' });
     }
 
     const chat = await Chat.findOne({ email });
     if (!chat) {
+      console.debug('GET /api/chat/history: No chat history found', { email });
       return res.status(404).json({ error: 'No chat history found' });
     }
 
+    console.debug('GET /api/chat/history: Chat history retrieved', { email, userId: chat.userId });
     res.json({ messages: chat.messages, userId: chat.userId });
   } catch (err) {
-    console.error('Error retrieving chat history:', err.message, err.stack);
-    logger.error('Error retrieving chat history:', err.message, err.stack);
+    console.error('GET /api/chat/history: Error retrieving chat history', { error: err.message, stack: err.stack });
+    logger.error('GET /api/chat/history: Error retrieving chat history', { error: err.message, stack: err.stack });
     await sendEmail(
       process.env.ADMIN_EMAIL,
       'Error: Chat History Retrieval Failed',
@@ -502,10 +579,12 @@ router.get('/history', async (req, res) => {
 // Endpoint to get all chats (for admin)
 router.get('/all', async (req, res) => {
   try {
+    console.debug('GET /api/chat/all: Retrieving all chats');
     const chats = await Chat.find({});
+    console.debug('GET /api/chat/all: Chats retrieved', { count: chats.length });
     res.json(chats);
   } catch (err) {
-    console.error('Error retrieving all chats:', err.message, err.stack);
+    console.error('GET /api/chat/all: Error retrieving chats', { error: err.message, stack: err.stack });
     res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });
@@ -513,23 +592,27 @@ router.get('/all', async (req, res) => {
 // Endpoint to update chat session email
 router.put('/update-email', async (req, res) => {
   try {
+    console.debug('PUT /api/chat/update-email: Processing email update', req.body);
     const { oldEmail, newEmail } = req.body;
     if (!oldEmail || !newEmail) {
+      console.warn('PUT /api/chat/update-email: Missing email fields', { oldEmail, newEmail });
       return res.status(400).json({ error: 'Old and new email are required' });
     }
 
     const chat = await Chat.findOne({ email: oldEmail });
     if (!chat) {
+      console.debug('PUT /api/chat/update-email: Chat session not found', { oldEmail });
       return res.status(404).json({ error: 'Chat session not found' });
     }
 
     chat.email = newEmail;
     await chat.save();
+    console.debug('PUT /api/chat/update-email: Email updated successfully', { oldEmail, newEmail });
 
     res.json({ message: 'Chat session email updated successfully' });
   } catch (err) {
-    console.error('Error updating chat session email:', err.message, err.stack);
-    logger.error('Error updating chat session email:', err.message, err.stack);
+    console.error('PUT /api/chat/update-email: Error updating email', { error: err.message, stack: err.stack });
+    logger.error('PUT /api/chat/update-email: Error updating email', { error: err.message, stack: err.stack });
     await sendEmail(
       process.env.ADMIN_EMAIL,
       'Error: Chat Session Email Update Failed',
@@ -541,10 +624,12 @@ router.put('/update-email', async (req, res) => {
 
 router.delete('/clear', async (req, res) => {
   try {
+    console.debug('DELETE /api/chat/clear: Clearing all chats');
     await Chat.deleteMany({});
+    console.debug('DELETE /api/chat/clear: Chats cleared successfully');
     res.json({ message: 'All chat history cleared successfully' });
   } catch (err) {
-    console.error('Error clearing chat history:', err.message, err.stack);
+    console.error('DELETE /api/chat/clear: Error clearing chats', { error: err.message, stack: err.stack });
     res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });

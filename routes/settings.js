@@ -1,3 +1,4 @@
+// routes/settings.js
 const express = require('express');
 const router = express.Router();
 const Settings = require('../models/Settings');
@@ -17,7 +18,11 @@ router.get('/', async (req, res) => {
     const settings = await Settings.find();
     const settingsMap = {};
     settings.forEach(setting => {
-      settingsMap[setting.key] = setting.value;
+      settingsMap[setting.key] = {
+        value: setting.value,
+        type: setting.type,
+        description: setting.description,
+      };
     });
     res.status(200).json(settingsMap);
   } catch (err) {
@@ -29,7 +34,9 @@ router.get('/', async (req, res) => {
 // POST /api/settings - Update or create a setting (admin only)
 router.post('/', isAdmin, [
   body('key').notEmpty().withMessage('Key is required'),
-  body('value').notEmpty().withMessage('Value is required'),
+  body('value').isFloat({ min: 0 }).withMessage('Value must be a non-negative number'),
+  body('type').isIn(['flat', 'percentage']).withMessage('Type must be either "flat" or "percentage"'),
+  body('description').optional().isString().withMessage('Description must be a string'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -37,16 +44,31 @@ router.post('/', isAdmin, [
   }
 
   try {
-    const { key, value } = req.body;
+    const { key, value, type, description } = req.body;
     const setting = await Settings.findOneAndUpdate(
       { key },
-      { value },
+      { value, type, description },
       { upsert: true, new: true }
     );
     res.status(200).json(setting);
   } catch (err) {
     console.error('Error updating setting:', err.message);
     res.status(500).json({ error: 'Failed to update setting' });
+  }
+});
+
+// DELETE /api/settings/:key - Delete a setting (admin only)
+router.delete('/:key', isAdmin, async (req, res) => {
+  try {
+    const { key } = req.params;
+    const setting = await Settings.findOneAndDelete({ key });
+    if (!setting) {
+      return res.status(404).json({ error: 'Setting not found' });
+    }
+    res.status(200).json({ message: 'Setting deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting setting:', err.message);
+    res.status(500).json({ error: 'Failed to delete setting' });
   }
 });
 
