@@ -34,6 +34,7 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pm2": "^6.0.5",
+    "pm2-logrotate": "^2.7.0",
     "sanitize-html": "^2.15.0",
     "socket.io": "^4.8.1",
     "stripe": "^18.0.0",
