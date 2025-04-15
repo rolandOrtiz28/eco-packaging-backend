@@ -11,6 +11,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const logger = require('../config/logger');
 const sendEmail = require('../utils/sendEmail');
 const twilio = require('twilio');
+const { calculateFees } = require('../utils/calculateFees');
+
 
 // Function to send SMS to all admins
 const sendOrderSmsToAdmins = async (orderDetails) => {
@@ -97,31 +99,19 @@ router.post('/create', [
     console.log('Creating PayPal order:', req.body);
     const { userId, items, total, discount } = req.body;
 
-    const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
-    const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
-    const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
-    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
-
-    const settings = {
-      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
-      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
-      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
-    };
+    const settingsDocs = await Settings.find();
+    const settings = {};
+    settingsDocs.forEach(doc => { settings[doc.key] = doc.value; });
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
-    const tax = subtotal * settings.taxRate;
-    const surCharge = settings.surCharge;
-    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
+    const calculated = calculateFees(subtotal, settings, discount);
 
-    if (Math.abs(calculatedTotal - total) > 0.01) {
-      console.error('Total mismatch:', { calculated: calculatedTotal, received: total });
+    if (Math.abs(calculated.total - total) > 0.01) {
+      console.error('Total mismatch:', { calculated: calculated.total, received: total });
       return res.status(400).json({ error: 'Total amount mismatch' });
     }
 
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:8080';
-
     const request = new paypal.orders.OrdersCreateRequest();
     request.prefer('return=representation');
     request.requestBody({
@@ -142,7 +132,6 @@ router.post('/create', [
     console.log('PayPal order created:', order.result.id);
 
     const approvalUrl = order.result.links.find(link => link.rel === 'approve').href;
-
     res.status(200).json({ paypalOrderId: order.result.id, approvalUrl });
   } catch (err) {
     console.error('PayPal Error Details:', err.response?.data || err.message, err.stack);
@@ -208,26 +197,15 @@ router.post('/complete', [
       return res.status(404).json({ error: 'User not found' });
     }
 
-    const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
-    const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
-    const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
-    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
-
-    const settings = {
-      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
-      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
-      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
-    };
+    const settingsDocs = await Settings.find();
+    const settings = {};
+    settingsDocs.forEach(doc => { settings[doc.key] = doc.value; });
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
-    const tax = subtotal * settings.taxRate;
-    const surCharge = settings.surCharge;
-    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
+    const calculated = calculateFees(subtotal, settings, discount);
 
-    if (Math.abs(calculatedTotal - total) > 0.01) {
-      console.error('Total mismatch in complete:', { calculated: calculatedTotal, received: total });
+    if (Math.abs(calculated.total - total) > 0.01) {
+      console.error('Total mismatch in complete:', { calculated: calculated.total, received: total });
       return res.status(400).json({ error: 'Total amount mismatch' });
     }
 
@@ -338,32 +316,17 @@ router.post('/stripe/create', [
     console.log('Creating Stripe payment intent:', req.body);
     const { userId, items, total, discount } = req.body;
 
-    // Fetch settings
-    const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
-    const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
-    const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
-    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
+    const settingsDocs = await Settings.find();
+    const settings = {};
+    settingsDocs.forEach(doc => { settings[doc.key] = doc.value; });
 
-    const settings = {
-      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
-      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
-      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
-    };
-
-    // Calculate total
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
-    const tax = subtotal * settings.taxRate;
-    const surCharge = settings.surCharge;
-    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
+    const calculated = calculateFees(subtotal, settings, discount);
 
-    // Log for debugging
-    console.log('Backend calculations:', { subtotal, shipping, tax, surCharge, discount, calculatedTotal, receivedTotal: total });
+    console.log('Backend calculations:', calculated);
 
-    // Validate total
-    if (Math.abs(calculatedTotal - total) > 0.01) {
-      console.error('Total mismatch:', { calculated: calculatedTotal, received: total });
+    if (Math.abs(calculated.total - total) > 0.01) {
+      console.error('Total mismatch:', { calculated: calculated.total, received: total });
       return res.status(400).json({ error: 'Total amount mismatch' });
     }
 
@@ -415,26 +378,15 @@ router.post('/stripe/complete', [
       return res.status(404).json({ error: 'User not found' });
     }
 
-    const taxRateSetting = await Settings.findOne({ key: 'taxRate' });
-    const deliveryFeeSetting = await Settings.findOne({ key: 'deliveryFee' });
-    const freeDeliveryThresholdSetting = await Settings.findOne({ key: 'freeDeliveryThreshold' });
-    const surChargeSetting = await Settings.findOne({ key: 'surCharge' });
-
-    const settings = {
-      taxRate: taxRateSetting && !isNaN(parseFloat(taxRateSetting.value)) ? parseFloat(taxRateSetting.value) : 0.08,
-      deliveryFee: deliveryFeeSetting && !isNaN(parseFloat(deliveryFeeSetting.value)) ? parseFloat(deliveryFeeSetting.value) : 9.99,
-      freeDeliveryThreshold: freeDeliveryThresholdSetting && !isNaN(parseFloat(freeDeliveryThresholdSetting.value)) ? parseFloat(freeDeliveryThresholdSetting.value) : 50,
-      surCharge: surChargeSetting && !isNaN(parseFloat(surChargeSetting.value)) ? parseFloat(surChargeSetting.value) : 0,
-    };
+    const settingsDocs = await Settings.find();
+    const settings = {};
+    settingsDocs.forEach(doc => { settings[doc.key] = doc.value; });
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = subtotal > settings.freeDeliveryThreshold ? 0 : settings.deliveryFee;
-    const tax = subtotal * settings.taxRate;
-    const surCharge = settings.surCharge;
-    const calculatedTotal = subtotal + shipping + tax + surCharge - (discount || 0);
+    const calculated = calculateFees(subtotal, settings, discount);
 
-    if (Math.abs(calculatedTotal - total) > 0.01) {
-      console.error('Total mismatch in complete:', { calculated: calculatedTotal, received: total });
+    if (Math.abs(calculated.total - total) > 0.01) {
+      console.error('Total mismatch in complete:', { calculated: calculated.total, received: total });
       return res.status(400).json({ error: 'Total amount mismatch' });
     }
 
