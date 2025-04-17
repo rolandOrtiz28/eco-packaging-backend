@@ -25,8 +25,8 @@ const corsOptions = {
   credentials: true,
 };
 
-app.options('*', cors(corsOptions)); // <-- Handle preflight
-app.use(cors(corsOptions)); // <-- Enable CORS globally
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
   res.on('finish', () => {
