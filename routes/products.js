@@ -113,7 +113,7 @@ router.post(
     body('moq').isInt({ min: 1 }).withMessage('MOQ must be a positive integer'),
     body('pcsPerCase').isInt({ min: 1 }).withMessage('Pieces per case must be a positive integer'),
     body('category').notEmpty().withMessage('Category is required'),
-    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'), // Validate inStock
+    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -122,9 +122,13 @@ router.post(
     }
 
     try {
-      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, details } = req.body;
+      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, isEcoFriendly, isBestSeller, isTrending, isTopRated, isCustomizable, details } = req.body;
 
       const imageUrls = req.files.map(file => file.path);
+
+      if (imageUrls.length === 0) {
+        return res.status(400).json({ error: 'At least one image is required to create a product' });
+      }
 
       const parsedDetails = JSON.parse(details);
       parsedDetails.pricing = parsedDetails.pricing.map(tier => {
@@ -147,7 +151,12 @@ router.post(
         category,
         tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
         featured: featured === 'true',
-        inStock: inStock === 'true', // Set inStock field
+        inStock: inStock === 'true',
+        isEcoFriendly: isEcoFriendly === 'true',
+        isBestSeller: isBestSeller === 'true',
+        isTrending: isTrending === 'true',
+        isTopRated: isTopRated === 'true',
+        isCustomizable: isCustomizable === 'true',
         details: parsedDetails,
       });
 
@@ -179,7 +188,7 @@ router.put(
     body('moq').optional().isInt({ min: 1 }).withMessage('MOQ must be a positive integer'),
     body('pcsPerCase').optional().isInt({ min: 1 }).withMessage('Pieces per case must be a positive integer'),
     body('category').optional().notEmpty().withMessage('Category cannot be empty'),
-    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'), // Validate inStock
+    body('inStock').optional().isBoolean().withMessage('In stock must be a boolean'),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -194,7 +203,7 @@ router.put(
         return res.status(404).json({ error: 'Product not found' });
       }
 
-      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, details, existingImages, mainImageIndex } = req.body;
+      const { name, description, price, bulkPrice, moq, pcsPerCase, category, tags, featured, inStock, isEcoFriendly, isBestSeller, isTrending, isTopRated, isCustomizable, details, existingImages, mainImageIndex } = req.body;
 
       if (name) product.name = name;
       if (description) product.description = description;
@@ -205,7 +214,12 @@ router.put(
       if (category) product.category = category;
       if (tags) product.tags = tags.split(',').map(tag => tag.trim());
       if (featured !== undefined) product.featured = featured === 'true';
-      if (inStock !== undefined) product.inStock = inStock === 'true'; // Update inStock field
+      if (inStock !== undefined) product.inStock = inStock === 'true';
+      if (isEcoFriendly !== undefined) product.isEcoFriendly = isEcoFriendly === 'true';
+      if (isBestSeller !== undefined) product.isBestSeller = isBestSeller === 'true';
+      if (isTrending !== undefined) product.isTrending = isTrending === 'true';
+      if (isTopRated !== undefined) product.isTopRated = isTopRated === 'true';
+      if (isCustomizable !== undefined) product.isCustomizable = isCustomizable === 'true';
       if (details) {
         const parsedDetails = JSON.parse(details);
         parsedDetails.pricing = parsedDetails.pricing.map(tier => {
@@ -230,7 +244,11 @@ router.put(
         product.image = updatedImages[mainIndex] || updatedImages[0];
         product.images = updatedImages;
       } else {
-        product.image = null;
+        // Do not set product.image to null; retain the existing image
+        // If there are no images (existing or new), ensure at least one image remains
+        if (!product.image) {
+          return res.status(400).json({ error: 'At least one image is required. Please upload an image or retain an existing one.' });
+        }
         product.images = [];
       }
 

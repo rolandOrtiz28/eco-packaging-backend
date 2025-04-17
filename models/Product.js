@@ -21,13 +21,18 @@ const productSchema = new mongoose.Schema({
   bulkPrice: { type: Number, required: true },
   moq: { type: Number, required: true },
   pcsPerCase: { type: Number, required: true },
-  image: { type: String, required: true }, // Primary image
-  images: [{ type: String }], // Array for multiple images
+  image: { type: String, required: true },
+  images: [{ type: String }],
   category: { type: String, required: true },
   tags: [String],
   featured: { type: Boolean, default: false },
   inStock: { type: Boolean, default: true },
   details: detailsSchema,
+  isEcoFriendly: { type: Boolean, default: false },
+  isBestSeller: { type: Boolean, default: false },
+  isTrending: { type: Boolean, default: false },
+  isTopRated: { type: Boolean, default: false },
+  isCustomizable: { type: Boolean, default: false }, 
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

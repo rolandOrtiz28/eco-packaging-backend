@@ -10,11 +10,11 @@ const { sendChatRequestSmsToAdmins } = require('../utils/sendSms');
 // Company data (unchanged)
 const companyData = {
   "company": {
-    "name": "Eco Packaging Products Inc. (BagStory USA)",
+    "name": "EcoLogic Solutions LLC",
     "headquarters": "New York, USA",
     "productionBase": "China",
     "certification": "ISO 9001:2000",
-    "website": "https://bagstoryusa.com",
+    "website": "www.ecologicsolutions.nyc",
     "businessPhilosophy": [
       "Customer-centricity",
       "Innovation",
