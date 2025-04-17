@@ -19,16 +19,14 @@ const secret = process.env.SESSION_SECRET;
 
 // CORS Configuration
 const corsOptions = {
-  origin: [
-    "http://localhost:8080",
-    "https://bagstory.editedgemultimedia.com",
-  ],
+  origin: ["http://localhost:8080", "https://bagstory.editedgemultimedia.com"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
-app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // <-- Handle preflight
+app.use(cors(corsOptions)); // <-- Enable CORS globally
 
 app.use((req, res, next) => {
   res.on('finish', () => {
@@ -190,6 +188,13 @@ app.use((req, res, next) => {
 
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    console.log('Handling OPTIONS request for:', req.originalUrl);
+  }
+  next();
+});
+
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contact', require('./routes/contact'));
@@ -203,6 +208,7 @@ app.use('/api/order', require('./routes/orders'));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));
+app.use('/api/banners', require('./routes/banners'));
 
 // Fallback for unmatched routes
 app.use((req, res, next) => {

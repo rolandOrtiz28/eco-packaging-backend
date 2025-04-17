@@ -519,7 +519,7 @@ router.post('/stripe/webhook', express.raw({ type: 'application/json' }), async 
             `Stripe Payment Succeeded: ${order.orderId}`,
             emailBody
           );
-          console.log(`Email sent to admin for order: ${order.orderId}`);
+          console.log(`Email sent to admin for order: ${order.orderId}`);    
 
           await sendOrderSmsToAdmins({
             orderId: order.orderId,
