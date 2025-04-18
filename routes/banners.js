@@ -169,4 +169,9 @@ router.delete(
   }
 );
 
+router.get('/test', (req, res) => {
+  res.json({ message: 'Banners route working' });
+});
+
+
 module.exports = router;
