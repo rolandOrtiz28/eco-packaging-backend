@@ -210,6 +210,14 @@ app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));
 
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+  app.use(express.static(path.join(__dirname, 'client', 'dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  });
+}
+
 
 // Fallback for unmatched routes
 app.use((req, res, next) => {
