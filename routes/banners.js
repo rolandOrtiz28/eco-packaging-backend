@@ -1,3 +1,5 @@
+console.log("✅ [banners.js] Route file loaded");
+
 const express = require('express');
 const router = express.Router();
 const Banner = require('../models/Banner');
@@ -5,6 +7,7 @@ const { body, validationResult } = require('express-validator');
 const multer = require('multer');
 const { cloudinary, storage } = require('../config/cloudinary');
 const logger = require('../config/logger');
+
 
 // Multer setup for Cloudinary
 const upload = multer({ storage });
