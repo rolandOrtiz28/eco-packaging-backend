@@ -202,9 +202,9 @@ app.get('/api/test-banner-route', (req, res) => {
 
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/banners', require('./routes/banners'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/products', require('./routes/products'));
-app.use('/api/banners', require('./routes/banners'));
 app.use('/api/blog-posts', require('./routes/blogPosts'));
 app.use('/api/user', require('./routes/users'));
 app.use('/api/analytics', require('./routes/analytics'));
@@ -214,14 +214,6 @@ app.use('/api/order', require('./routes/orders'));
 app.use('/api/promo', require('./routes/promo'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/subscribers', require('./routes/subscribers'));
-
-if (process.env.NODE_ENV === 'production') {
-  const path = require('path');
-  app.use(express.static(path.join(__dirname, 'client', 'dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-  });
-}
 
 
 // Fallback for unmatched routes
