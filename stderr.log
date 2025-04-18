@@ -631,3 +631,57 @@ Node.js v18.20.7
 ⚠️ Unmatched route: GET /
 Total mismatch: { calculated: 216, received: 200 }
 Total mismatch: { calculated: 216, received: 200 }
+Total mismatch: { calculated: 216, received: 200 }
+Total mismatch: { calculated: 216, received: 200 }
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /favicon.ico
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET //wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //xmlrpc.php?rsd
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET //blog/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //web/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //wordpress/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //website/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //wp/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //news/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //2018/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //2019/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //shop/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //wp1/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //test/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //media/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //wp2/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //site/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //cms/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET //sito/wp-includes/wlwmanifest.xml
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /favicon.ico
+⚠️ Unmatched route: GET /favicon.ico
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /favicon.ico
+⚠️ Unmatched route: GET /favicon.ico
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: POST /api/banners
+⚠️ Unmatched route: POST /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: GET /api/banners
+⚠️ Unmatched route: POST /api/banners
