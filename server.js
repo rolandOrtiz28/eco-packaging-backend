@@ -195,6 +195,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/api/test-banner-route', (req, res) => {
+  console.log("✅ Hit /api/test-banner-route");
+  res.json({ status: "✅ Test route is working" });
+});
+
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contact', require('./routes/contact'));
