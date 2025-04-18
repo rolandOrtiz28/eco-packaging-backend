@@ -203,6 +203,7 @@ app.get('/api/test-banner-route', (req, res) => {
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/banners', require('./routes/banners'));
+console.log('✅ Registered /api/banners route');
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/blog-posts', require('./routes/blogPosts'));

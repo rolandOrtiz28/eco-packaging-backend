@@ -2,6 +2,7 @@ console.log("✅ [banners.js] Route file loaded");
 
 const express = require('express');
 const router = express.Router();
+console.log('✅ Initializing /api/banners router');
 const Banner = require('../models/Banner');
 const { body, validationResult } = require('express-validator');
 const multer = require('multer');
