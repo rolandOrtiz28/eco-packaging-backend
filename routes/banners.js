@@ -1,3 +1,5 @@
+console.log("✅ [banners.js] Route file loaded");
+
 const express = require('express');
 const router = express.Router();
 const Banner = require('../models/Banner');
