@@ -65,7 +65,7 @@ const isAdmin = (req, res, next) => {
 // GET /api/orders - Fetch all orders (Admin only)
 router.get('/', isAdmin, async (req, res) => {
   try {
-    const orders = await Order.find().populate('userId', 'email');
+    const orders = await Order.find().populate('userId', 'email name');
     const transformedOrders = orders.map(order => ({
       ...order.toObject(),
       id: order._id.toString(),
@@ -579,14 +579,16 @@ router.put(
       const { id } = req.params;
       const { status } = req.body;
 
-      const order = await Order.findById(id);
+      const order = await Order.findByIdAndUpdate(
+        id,
+        { $set: { status } },
+        { new: true, runValidators: true }
+      ).populate('userId', 'email name');
+
       if (!order) {
         logger.warn(`Order with ID ${id} not found`);
         return res.status(404).json({ error: 'Order not found' });
       }
-
-      order.status = status;
-      await order.save();
 
       logger.info(`Updated status of order with ID ${id} to ${status}`);
       const transformedOrder = {

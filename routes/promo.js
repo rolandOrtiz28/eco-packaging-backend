@@ -188,4 +188,23 @@ router.post('/apply', [
     }
   });
 
+  router.delete('/:id', isAdmin, async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const promoCode = await PromoCode.findById(id);
+      if (!promoCode) {
+        logger.error(`Promo code not found: ${id}`);
+        return res.status(404).json({ error: 'Promo code not found' });
+      }
+  
+      await PromoCode.deleteOne({ _id: id });
+      logger.info(`Promo code deleted: ${id}`);
+      res.status(200).json({ message: 'Promo code deleted successfully' });
+    } catch (err) {
+      logger.error('Error deleting promo code:', err.message, err.stack);
+      res.status(500).json({ error: 'Failed to delete promo code', details: err.message });
+    }
+  });
+
 module.exports = router;

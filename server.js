@@ -19,7 +19,7 @@ const secret = process.env.SESSION_SECRET;
 
 // CORS Configuration
 const corsOptions = {
-  origin: ["http://localhost:8080", "https://bagstory.editedgemultimedia.com"],
+  origin: ["http://localhost:8080", "https://bagstory.editedgemultimedia.com", "https://api.ecologicsolutions.nyc", "https://ecologicsolutions.nyc"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,

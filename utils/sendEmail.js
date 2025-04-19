@@ -1,10 +1,11 @@
+// utils/sendEmail.js
 const nodemailer = require('nodemailer');
 
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, text, html = null) => {
   try {
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com', // Use Gmail's SMTP server (update if using a different provider)
+      host: 'smtp.gmail.com', // Use Gmail's SMTP server
       port: 587,
       secure: false, // Use TLS
       auth: {
@@ -15,10 +16,11 @@ const sendEmail = async (to, subject, text) => {
 
     // Define email options
     const mailOptions = {
-      from: `"Eco Packaging Support" <${process.env.EMAIL_USER}>`,
+      from: `"EcoLogic Solution Support" <${process.env.EMAIL_USER}>`,
       to,
       subject,
-      text,
+      text, // Plain text version
+      ...(html && { html }), // Include HTML version if provided
     };
 
     // Send the email

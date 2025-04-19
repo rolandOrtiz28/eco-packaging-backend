@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 const Quote = require('../models/Quote');
+const Lead = require('../models/Lead');
 const logger = require('../config/logger');
 const multer = require('multer');
 const { cloudinary, storage } = require('../config/cloudinary');
@@ -429,35 +430,180 @@ router.post(
         return res.status(404).json({ error: 'Quote not found' });
       }
 
-      // Send reply email to the user
-      const emailText = `
-        Dear ${quote.name},
+      // Plain text version for fallback
+      const plainText = `
+Dear ${quote.name},
 
-        Thank you for your quote request for ${quote.productName}.
+Thank you for your quote request for ${quote.productName}.
 
-        ${replyMessage}
+${replyMessage}
 
-        If you have any further questions, feel free to reach out.
+If you have any further questions, feel free to reach out.
 
-        Best regards,
-        Eco Packaging Team
+Best regards,
+Eco Packaging Team
+
+Contact Us:
+176 Central Ave Suite 9 Farmingdale
+New York, NY 11735
+United States
+Phone: +1 (516) 360-9888
+Email: contact@ecologicsolutions.nyc
+`;
+
+      // HTML version with branding
+      const htmlContent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Response to Your Quote Request</title>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #ffffff;
+            line-height: 1.6;
+            color: #333333;
+          }
+          .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eeeeee;
+          }
+          .header {
+            background-color: #ffffff;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+          }
+          .logo {
+            max-width: 180px;
+            height: auto;
+          }
+          .content {
+            padding: 30px;
+            background-color: #ffffff;
+          }
+          .footer {
+            background-color: #f9f9f9;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+          }
+          h1 {
+            color: #25553d; /* Primary brand color for headings */
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+          }
+          p {
+            font-size: 15px;
+            margin: 0 0 18px;
+            color: #555555;
+          }
+          .highlight {
+            color: #4d93a6; /* Accent color for emphasis */
+            font-weight: 600;
+          }
+          a {
+            color: #4d93a6;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 25px 0;
+          }
+          .signature {
+            margin-top: 25px;
+          }
+          .contact-info {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="email-container">
+          <!-- Header -->
+          <div class="header">
+            <img src="https://res.cloudinary.com/rolandortiz/image/upload/v1744909042/bagstoryCustom/Logo_ilqcyn.png" alt="Eco Packaging Solutions" class="logo" />
+          </div>
+          
+          <!-- Content -->
+          <div class="content">
+            <h1>Dear Roland Ortiz,</h1>
+            
+            <p>Thank you for your interest in <span class="highlight">Wine Vest Bag (1/2 Two Bottle Wine Bag)</span>. We appreciate the opportunity to serve your sustainable packaging needs.</p>
+            
+            <div class="divider"></div>
+            
+            <p>Test</p>
+            
+            <div class="divider"></div>
+            
+            <p>Should you require any additional information or have further questions, our team is here to assist you.</p>
+            
+            <div class="signature">
+              <p><strong>Best regards,</strong></p>
+              <p>The Eco Packaging Solutions Team</p>
+            </div>
+          </div>
+          
+          <!-- Footer -->
+          <div class="footer">
+            <div class="contact-info">
+              <p>176 Central Ave Suite 9, Farmingdale<br>
+              New York, NY 11735, United States</p>
+              
+              <p>Phone: <a href="tel:+15163609888">+1 (516) 360-9888</a><br>
+              Email: <a href="mailto:contact@ecologicsolutions.nyc">contact@ecologicsolutions.nyc</a></p>
+              
+              <p style="margin-top: 15px;">
+                <a href="https://www.ecologicsolutions.nyc">Visit our website</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
       `;
+
+      // Debug logging
+      console.log('Sending email to:', quote.email);
+      console.log('HTML Content:', htmlContent);
+
+      // Send email with both plain text and HTML versions
       await sendEmail(
         quote.email,
         `Response to Your Quote Request for ${quote.productName}`,
-        emailText
+        plainText,
+        htmlContent
       );
 
       // Update quote status to 'responded'
       quote.status = 'responded';
       await quote.save();
 
+      // Update lead status if applicable
       if (req.user && req.user.role === 'admin') {
-        const lead = await Lead.findOne({ email, source: 'Chat Widget' });
+        const lead = await Lead.findOne({ email: quote.email, source: 'Chat Widget' });
         if (lead) {
           lead.status = 'Contacted';
           await lead.save();
-          console.log(`Lead status updated to Contacted for email: ${email}`);
+          console.log(`Lead status updated to Contacted for email: ${quote.email}`);
         }
       }
 
@@ -474,6 +620,7 @@ router.post(
     }
   }
 );
+
 
 // DELETE /quotes/:id - Delete a quote (Admin only)
 router.delete(
